@@ -292,16 +292,6 @@ function App() {
     return PRODUCTS.filter((product) => product.category === activeCategory);
   }, [activeCategory]);
 
-  const selectCategory = (category) => {
-    setActiveCategory(category);
-    requestAnimationFrame(() => {
-      document.getElementById("product-carousel")?.scrollTo({
-        left: 0,
-        behavior: "smooth",
-      });
-    });
-  };
-
   const cartTotal = cart.reduce((sum, item) => sum + item.price, 0);
   const cartCount = cart.length;
 
@@ -523,29 +513,6 @@ function App() {
                 draggable="false"
               />
 
-              <div className="hero-floating-desserts" aria-hidden="true">
-                <div className="floating-dessert floating-dessert-icecream floating-delay-1">
-                  <span className="floating-glow" />
-                  <img src="https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356" alt="" />
-                </div>
-                <div className="floating-dessert floating-dessert-cake floating-delay-2">
-                  <span className="floating-glow" />
-                  <img src="https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156" alt="" />
-                </div>
-                <div className="floating-dessert floating-dessert-drink floating-delay-3">
-                  <span className="floating-glow" />
-                  <img src="https://baskinrobbinsindia.com/cdn/shop/files/BEVERAGE_95b0dcd1-b12e-4947-87ae-d17feaf2889b_414x.png?v=1698414157" alt="" />
-                </div>
-                <div className="floating-dessert floating-dessert-gelato floating-delay-4">
-                  <span className="floating-glow" />
-                  <img src="https://baskinrobbinsindia.com/cdn/shop/files/Saffron_Gelato_414x.png?v=1764762258" alt="" />
-                </div>
-                <span className="floating-particle particle-1" />
-                <span className="floating-particle particle-2" />
-                <span className="floating-particle particle-3" />
-                <span className="floating-particle particle-4" />
-              </div>
-
               <div className="hero-ambient" aria-hidden="true">
                 <span className="hero-ambient-orb hero-ambient-orb-one" />
                 <span className="hero-ambient-orb hero-ambient-orb-two" />
@@ -699,20 +666,20 @@ function App() {
               </h2>
               <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-[#FF007F]" />
               <p className="mx-auto mt-6 max-w-2xl text-gray-600">
-                Product images are loaded directly from the web, so your
-                repository does not need a large product-image folder.
+                Choose your favourite ice cream, gelato, sundae, cake, dessert,
+                beverage or gifting option.
               </p>
             </div>
 
-            <div className="mb-8 flex gap-2 overflow-x-auto pb-2">
+            <div className="mb-10 flex flex-wrap justify-center gap-3">
               {CATEGORIES.map((category) => (
                 <button
                   type="button"
                   key={category}
-                  onClick={() => selectCategory(category)}
-                  className={`shrink-0 rounded-full px-5 py-2.5 text-sm font-bold transition ${activeCategory === category
-                    ? "bg-[#FF007F] text-white shadow-lg"
-                    : "bg-white text-[#5D4037] shadow-sm hover:bg-pink-50 hover:text-[#FF007F]"
+                  onClick={() => setActiveCategory(category)}
+                  className={`rounded-full border px-5 py-2.5 text-sm font-bold transition duration-300 ${activeCategory === category
+                    ? "border-[#FF007F] bg-[#FF007F] text-white shadow-lg shadow-pink-500/20"
+                    : "border-white bg-white text-[#5D4037] shadow-sm hover:-translate-y-0.5 hover:border-pink-100 hover:bg-pink-50 hover:text-[#FF007F]"
                     }`}
                 >
                   {category}
@@ -720,30 +687,24 @@ function App() {
               ))}
             </div>
 
-            <div className="relative">
+            {filteredProducts.length > 0 ? (
               <div
-                id="product-carousel"
-                className="flex flex-nowrap gap-6 overflow-x-auto scroll-smooth pb-6 pr-4 snap-x snap-mandatory"
-                style={{ scrollbarWidth: "thin" }}
+                key={activeCategory}
+                className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
               >
                 {filteredProducts.map((product, index) => (
                   <article
                     key={product.id}
-                    style={{ transitionDelay: `${index * 70}ms` }}
-                    className="product-card group relative w-[82vw] shrink-0 snap-start overflow-hidden rounded-[2rem] border border-white bg-white shadow-lg transition duration-500 hover:-translate-y-3 hover:shadow-2xl sm:w-[360px] lg:w-[380px]"
+                    className="product-card group relative overflow-hidden rounded-[2rem] border border-white bg-white shadow-lg"
+                    style={{ animationDelay: `${index * 60}ms` }}
                   >
-                    <div
-                      className={`pointer-events-none absolute -right-10 -top-10 z-10 h-28 w-28 rounded-full border-2 border-[#FF007F]/15 ${index % 2 === 0
-                        ? "animate-orbit"
-                        : "animate-orbit-reverse"
-                        }`}
-                    />
+                    <div className="pointer-events-none absolute -right-10 -top-10 z-10 h-28 w-28 rounded-full border-2 border-[#FF007F]/10" />
 
                     <div className="relative h-64 overflow-hidden bg-pink-50">
                       <img
                         src={product.image}
                         alt={product.name}
-                        className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
                         loading="lazy"
                         referrerPolicy="no-referrer"
                       />
@@ -753,7 +714,9 @@ function App() {
                     </div>
 
                     <div className="p-6">
-                      <h3 className="text-xl font-black">{product.name}</h3>
+                      <h3 className="text-xl font-black text-[#5D4037]">
+                        {product.name}
+                      </h3>
                       <p className="mt-2 min-h-[48px] text-sm leading-6 text-gray-500">
                         {product.description}
                       </p>
@@ -778,40 +741,16 @@ function App() {
                   </article>
                 ))}
               </div>
-
-              <div className="mt-3 flex items-center justify-between gap-4">
-                <p className="text-sm font-semibold text-gray-500">
-                  Swipe or scroll horizontally to explore all items →
-                </p>
-
-                <div className="hidden gap-2 sm:flex">
-                  <button
-                    type="button"
-                    onClick={() =>
-                      document
-                        .getElementById("product-carousel")
-                        ?.scrollBy({ left: -420, behavior: "smooth" })
-                    }
-                    className="flex h-11 w-11 items-center justify-center rounded-full border bg-white text-xl font-bold shadow-sm hover:border-[#FF007F] hover:text-[#FF007F]"
-                    aria-label="Scroll products left"
-                  >
-                    ←
-                  </button>
-                  <button
-                    type="button"
-                    onClick={() =>
-                      document
-                        .getElementById("product-carousel")
-                        ?.scrollBy({ left: 420, behavior: "smooth" })
-                    }
-                    className="flex h-11 w-11 items-center justify-center rounded-full border bg-white text-xl font-bold shadow-sm hover:border-[#FF007F] hover:text-[#FF007F]"
-                    aria-label="Scroll products right"
-                  >
-                    →
-                  </button>
-                </div>
+            ) : (
+              <div className="rounded-[2rem] border border-pink-100 bg-white px-6 py-16 text-center shadow-sm">
+                <h3 className="text-2xl font-black text-[#5D4037]">Nothing in this category yet</h3>
+                <p className="mt-2 text-gray-500">Please choose another category.</p>
               </div>
-            </div>
+            )}
+
+            <p className="mt-8 text-center text-sm font-semibold text-gray-400">
+              {filteredProducts.length} {filteredProducts.length === 1 ? "item" : "items"} available
+            </p>
           </div>
         </section>
 
@@ -1416,147 +1355,6 @@ function App() {
           color: #4a2a2b;
           line-height: 1.2;
           pointer-events: none;
-        }
-
-        .hero-floating-desserts {
-          position: absolute;
-          inset: 0;
-          z-index: 4;
-          overflow: hidden;
-          pointer-events: none;
-        }
-
-        .floating-dessert {
-          position: absolute;
-          display: grid;
-          place-items: center;
-          width: clamp(82px, 9vw, 138px);
-          aspect-ratio: 1;
-          opacity: .72;
-          filter: drop-shadow(0 16px 18px rgba(96, 32, 65, .10));
-          will-change: transform;
-        }
-
-        .floating-dessert img {
-          position: relative;
-          z-index: 2;
-          display: block;
-          width: 100%;
-          height: 100%;
-          object-fit: contain;
-          filter: saturate(.92) drop-shadow(0 8px 14px rgba(255, 0, 127, .08));
-          animation: dessertBreath 6s ease-in-out infinite;
-        }
-
-        .floating-glow {
-          position: absolute;
-          z-index: 1;
-          width: 54%;
-          height: 28%;
-          border-radius: 50%;
-          background: radial-gradient(ellipse, rgba(255, 0, 127, .12), transparent 70%);
-          filter: blur(10px);
-          transform: translateY(30%);
-          animation: dessertGlow 6s ease-in-out infinite;
-        }
-
-        .floating-dessert-icecream {
-          left: 8%;
-          top: 20%;
-          animation: levitateSoftLeft 9s ease-in-out infinite;
-        }
-
-        .floating-dessert-cake {
-          left: 10%;
-          bottom: 8%;
-          width: clamp(94px, 10.5vw, 158px);
-          animation: levitateSoftCake 10s ease-in-out infinite;
-        }
-
-        .floating-dessert-drink {
-          right: 8%;
-          top: 18%;
-          width: clamp(78px, 8.5vw, 128px);
-          animation: levitateSoftRight 9.5s ease-in-out infinite;
-        }
-
-        .floating-dessert-gelato {
-          right: 13%;
-          bottom: 10%;
-          width: clamp(68px, 7.5vw, 112px);
-          opacity: .58;
-          animation: levitateTiny 8s ease-in-out infinite;
-        }
-
-        .floating-delay-1 img, .floating-delay-1 .floating-glow { animation-delay: -.8s; }
-        .floating-delay-2 img, .floating-delay-2 .floating-glow { animation-delay: -2.1s; }
-        .floating-delay-3 img, .floating-delay-3 .floating-glow { animation-delay: -1.4s; }
-        .floating-delay-4 img, .floating-delay-4 .floating-glow { animation-delay: -3s; }
-
-        .floating-particle {
-          position: absolute;
-          width: 4px;
-          height: 4px;
-          border-radius: 50%;
-          background: rgba(255,255,255,.75);
-          box-shadow: 0 0 12px rgba(255,0,127,.22);
-          animation: particleDrift 6s ease-in-out infinite;
-        }
-
-        .particle-1 { left: 19%; top: 31%; animation-delay: -.4s; }
-        .particle-2 { left: 31%; top: 18%; width: 3px; height: 3px; animation-delay: -2s; }
-        .particle-3 { right: 27%; top: 30%; width: 3px; height: 3px; animation-delay: -1.2s; }
-        .particle-4 { right: 20%; bottom: 25%; animation-delay: -3.1s; }
-
-        @keyframes levitateSoftLeft {
-          0%, 100% { transform: translate3d(0, 0, 0) rotate(-2deg); }
-          50% { transform: translate3d(8px, -14px, 0) rotate(2deg); }
-        }
-
-        @keyframes levitateSoftRight {
-          0%, 100% { transform: translate3d(0, 0, 0) rotate(2deg); }
-          50% { transform: translate3d(-8px, -13px, 0) rotate(-2deg); }
-        }
-
-        @keyframes levitateSoftCake {
-          0%, 100% { transform: translate3d(0, 0, 0) rotate(-1.5deg); }
-          50% { transform: translate3d(10px, -11px, 0) rotate(1.5deg); }
-        }
-
-        @keyframes levitateTiny {
-          0%, 100% { transform: translate3d(0, 0, 0); }
-          50% { transform: translate3d(-7px, -12px, 0); }
-        }
-
-        @keyframes dessertBreath {
-          0%, 100% { transform: scale(1); }
-          50% { transform: scale(1.018); }
-        }
-
-        @keyframes dessertGlow {
-          0%, 100% { opacity: .35; transform: translateY(30%) scale(.94); }
-          50% { opacity: .55; transform: translateY(27%) scale(1.04); }
-        }
-
-        @keyframes particleDrift {
-          0%, 100% { transform: translate3d(0, 0, 0); opacity: .25; }
-          50% { transform: translate3d(7px, -12px, 0); opacity: .75; }
-        }
-
-        @media (max-width: 900px) {
-          .floating-dessert-icecream { left: 2%; top: 19%; }
-          .floating-dessert-cake { left: 1%; bottom: 7%; }
-          .floating-dessert-drink { right: 1%; top: 18%; }
-          .floating-dessert-gelato { right: 4%; bottom: 8%; }
-        }
-
-        @media (max-width: 640px) {
-          .floating-dessert { opacity: .42; }
-          .floating-dessert-icecream { left: -9%; top: 24%; width: 92px; }
-          .floating-dessert-cake { left: -8%; bottom: 7%; width: 102px; }
-          .floating-dessert-drink { right: -8%; top: 20%; width: 88px; }
-          .floating-dessert-gelato { right: -5%; bottom: 9%; width: 72px; opacity: .34; }
-          .floating-particle { display: none; }
         }
 
         .hero-ambient {
@@ -2255,9 +2053,10 @@ function App() {
         }
 
         .product-card {
-          transform: translateY(0);
           opacity: 1;
-          transition: transform .45s cubic-bezier(.16,1,.3,1), box-shadow .45s ease;
+          transform: translateY(0);
+          animation: productCardIn .65s cubic-bezier(.16,1,.3,1) both;
+          transition: transform .35s cubic-bezier(.16,1,.3,1), box-shadow .35s ease;
           will-change: transform;
         }
 
@@ -2288,6 +2087,11 @@ function App() {
         .reveal-on-scroll.is-visible {
           opacity: 1;
           transform: translateY(0);
+        }
+
+        @keyframes productCardIn {
+          from { opacity: 0; transform: translateY(18px); }
+          to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes heroIn {
@@ -2377,20 +2181,6 @@ function App() {
 
         .animate-orbit-reverse {
           animation: orbitReverse 9s linear infinite;
-        }
-
-        #product-carousel::-webkit-scrollbar {
-          height: 8px;
-        }
-
-        #product-carousel::-webkit-scrollbar-thumb {
-          background: rgba(255, 0, 127, 0.28);
-          border-radius: 999px;
-        }
-
-        #product-carousel::-webkit-scrollbar-track {
-          background: rgba(93, 64, 55, 0.06);
-          border-radius: 999px;
         }
 
         .site-shell {
