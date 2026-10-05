@@ -513,6 +513,39 @@ function App() {
                 draggable="false"
               />
 
+              <div className="hero-floating-desserts" aria-hidden="true">
+                <div className="floating-dessert floating-dessert-icecream floating-delay-1">
+                  <span className="floating-glow" />
+                  <img src="https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356" alt="" />
+                </div>
+                <div className="floating-dessert floating-dessert-cake floating-delay-2">
+                  <span className="floating-glow" />
+                  <img src="https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156" alt="" />
+                </div>
+                <div className="floating-dessert floating-dessert-drink floating-delay-3">
+                  <span className="floating-glow" />
+                  <img src="https://baskinrobbinsindia.com/cdn/shop/files/BEVERAGE_95b0dcd1-b12e-4947-87ae-d17feaf2889b_414x.png?v=1698414157" alt="" />
+                </div>
+                <div className="floating-dessert floating-dessert-sundae floating-delay-4">
+                  <span className="floating-glow" />
+                  <img src="https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156" alt="" />
+                </div>
+                <div className="floating-dessert floating-dessert-gelato floating-delay-5">
+                  <span className="floating-glow" />
+                  <img src="https://baskinrobbinsindia.com/cdn/shop/files/Saffron_Gelato_414x.png?v=1764762258" alt="" />
+                </div>
+                <div className="floating-dessert floating-dessert-cheesecake floating-delay-6">
+                  <span className="floating-glow" />
+                  <img src="https://baskinrobbinsindia.com/cdn/shop/files/Tiramisu_Cheesecake_414x.png?v=1764762258" alt="" />
+                </div>
+                <span className="floating-particle particle-1" />
+                <span className="floating-particle particle-2" />
+                <span className="floating-particle particle-3" />
+                <span className="floating-particle particle-4" />
+                <span className="floating-particle particle-5" />
+                <span className="floating-particle particle-6" />
+              </div>
+
               <div className="hero-ambient" aria-hidden="true">
                 <span className="hero-ambient-orb hero-ambient-orb-one" />
                 <span className="hero-ambient-orb hero-ambient-orb-two" />
@@ -1383,6 +1416,207 @@ function App() {
           color: #4a2a2b;
           line-height: 1.2;
           pointer-events: none;
+        }
+
+        .hero-floating-desserts {
+          position: absolute;
+          inset: 0;
+          z-index: 4;
+          overflow: hidden;
+          pointer-events: none;
+        }
+
+        .floating-dessert {
+          position: absolute;
+          display: grid;
+          place-items: center;
+          width: clamp(100px, 13vw, 205px);
+          aspect-ratio: 1;
+          filter: drop-shadow(0 24px 22px rgba(96, 32, 65, .16));
+          will-change: transform;
+        }
+
+        .floating-dessert img {
+          position: relative;
+          z-index: 2;
+          display: block;
+          width: 100%;
+          height: 100%;
+          object-fit: contain;
+          filter: saturate(1.06) drop-shadow(0 12px 18px rgba(255, 0, 127, .12));
+          animation: dessertBreath 4.5s ease-in-out infinite;
+        }
+
+        .floating-glow {
+          position: absolute;
+          z-index: 1;
+          width: 58%;
+          height: 35%;
+          border-radius: 50%;
+          background: radial-gradient(ellipse, rgba(255, 0, 127, .22), transparent 70%);
+          filter: blur(10px);
+          transform: translateY(28%);
+          animation: dessertGlow 4.5s ease-in-out infinite;
+        }
+
+        .floating-dessert-icecream {
+          left: 4%;
+          top: 17%;
+          animation: levitateLeft 8s ease-in-out infinite;
+        }
+
+        .floating-dessert-cake {
+          left: 7%;
+          bottom: 5%;
+          width: clamp(115px, 15vw, 235px);
+          animation: levitateCake 9s ease-in-out infinite;
+        }
+
+        .floating-dessert-drink {
+          right: 5%;
+          top: 12%;
+          width: clamp(92px, 12vw, 180px);
+          animation: levitateRight 7.5s ease-in-out infinite;
+        }
+
+        .floating-dessert-sundae {
+          right: 5%;
+          bottom: 8%;
+          width: clamp(105px, 13vw, 195px);
+          animation: levitateSundae 8.5s ease-in-out infinite;
+        }
+
+        .floating-dessert-gelato {
+          left: 19%;
+          top: 7%;
+          width: clamp(72px, 9vw, 135px);
+          animation: orbitSmall 10s ease-in-out infinite;
+          opacity: .88;
+        }
+
+        .floating-dessert-cheesecake {
+          right: 18%;
+          bottom: 3%;
+          width: clamp(82px, 10vw, 150px);
+          animation: orbitSmallReverse 11s ease-in-out infinite;
+          opacity: .9;
+        }
+
+        .floating-delay-1 img, .floating-delay-1 .floating-glow { animation-delay: -.8s; }
+        .floating-delay-2 img, .floating-delay-2 .floating-glow { animation-delay: -2.1s; }
+        .floating-delay-3 img, .floating-delay-3 .floating-glow { animation-delay: -1.4s; }
+        .floating-delay-4 img, .floating-delay-4 .floating-glow { animation-delay: -3s; }
+        .floating-delay-5 img, .floating-delay-5 .floating-glow { animation-delay: -1.9s; }
+        .floating-delay-6 img, .floating-delay-6 .floating-glow { animation-delay: -3.7s; }
+
+        .floating-particle {
+          position: absolute;
+          width: 7px;
+          height: 7px;
+          border-radius: 50%;
+          background: #fff;
+          box-shadow: 0 0 0 5px rgba(255,255,255,.2), 0 0 18px rgba(255,0,127,.45);
+          animation: particleDrift 5s ease-in-out infinite;
+        }
+
+        .particle-1 { left: 16%; top: 35%; animation-delay: -.4s; }
+        .particle-2 { left: 28%; top: 17%; width: 5px; height: 5px; animation-delay: -2s; }
+        .particle-3 { right: 29%; top: 32%; width: 6px; height: 6px; animation-delay: -1.2s; }
+        .particle-4 { right: 14%; top: 46%; width: 5px; height: 5px; animation-delay: -3.1s; }
+        .particle-5 { left: 24%; bottom: 19%; width: 5px; height: 5px; animation-delay: -2.6s; }
+        .particle-6 { right: 25%; bottom: 18%; animation-delay: -4s; }
+
+        @keyframes levitateLeft {
+          0%, 100% { transform: translate3d(0, 0, 0) rotate(-4deg); }
+          50% { transform: translate3d(16px, -28px, 0) rotate(5deg); }
+        }
+
+        @keyframes levitateRight {
+          0%, 100% { transform: translate3d(0, 0, 0) rotate(4deg); }
+          50% { transform: translate3d(-18px, -25px, 0) rotate(-5deg); }
+        }
+
+        @keyframes levitateCake {
+          0%, 100% { transform: translate3d(0, 0, 0) rotate(-3deg) scale(1); }
+          50% { transform: translate3d(24px, -20px, 0) rotate(3deg) scale(1.03); }
+        }
+
+        @keyframes levitateSundae {
+          0%, 100% { transform: translate3d(0, 0, 0) rotate(3deg); }
+          50% { transform: translate3d(-20px, -26px, 0) rotate(-3deg) scale(1.025); }
+        }
+
+        @keyframes orbitSmall {
+          0%, 100% { transform: translate3d(0, 0, 0) rotate(-7deg); }
+          50% { transform: translate3d(24px, 18px, 0) rotate(8deg); }
+        }
+
+        @keyframes orbitSmallReverse {
+          0%, 100% { transform: translate3d(0, 0, 0) rotate(6deg); }
+          50% { transform: translate3d(-22px, -17px, 0) rotate(-7deg); }
+        }
+
+        @keyframes dessertBreath {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.035); }
+        }
+
+        @keyframes dessertGlow {
+          0%, 100% { opacity: .45; transform: translateY(28%) scale(.9); }
+          50% { opacity: .8; transform: translateY(25%) scale(1.08); }
+        }
+
+        @keyframes particleDrift {
+          0%, 100% { transform: translate3d(0, 0, 0) scale(.8); opacity: .3; }
+          50% { transform: translate3d(10px, -18px, 0) scale(1.25); opacity: 1; }
+        }
+
+        @media (max-width: 900px) {
+          .floating-dessert-icecream { left: -2%; top: 20%; }
+          .floating-dessert-cake { left: -2%; bottom: 4%; }
+          .floating-dessert-drink { right: -2%; top: 17%; }
+          .floating-dessert-sundae { right: -2%; bottom: 6%; }
+          .floating-dessert-gelato { left: 8%; top: 9%; }
+          .floating-dessert-cheesecake { right: 7%; bottom: 4%; }
+        }
+
+        @media (max-width: 640px) {
+          .floating-dessert {
+            opacity: .72;
+          }
+
+          .floating-dessert-icecream {
+            left: -17%;
+            top: 22%;
+            width: 145px;
+          }
+
+          .floating-dessert-cake {
+            left: -14%;
+            bottom: 3%;
+            width: 155px;
+          }
+
+          .floating-dessert-drink {
+            right: -15%;
+            top: 17%;
+            width: 135px;
+          }
+
+          .floating-dessert-sundae {
+            right: -14%;
+            bottom: 5%;
+            width: 145px;
+          }
+
+          .floating-dessert-gelato,
+          .floating-dessert-cheesecake {
+            display: none;
+          }
+
+          .floating-particle:nth-last-child(-n+2) {
+            display: none;
+          }
         }
 
         .hero-ambient {
