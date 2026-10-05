@@ -523,13 +523,7 @@ function App() {
               <div className="hero-showcase-glow hero-showcase-glow-two" />
 
               <div className="hero-showcase-top">
-                <div className="hero-showcase-brand">
-                  <span className="hero-showcase-brand-mark">BR</span>
-                  <span>
-                    <strong>Baskin Robbins</strong>
-                    <small>by Shanzzy</small>
-                  </span>
-                </div>
+                <div className="hero-showcase-top-spacer" aria-hidden="true" />
 
                 <div className="hero-showcase-stats" aria-label="Store highlights">
                   <div><strong>31</strong><span>Rewards</span></div>
@@ -710,13 +704,15 @@ function App() {
               </p>
             </div>
 
-            <div className="mb-10 flex flex-wrap justify-center gap-3">
+            <div className="category-scroll mb-10 flex w-full flex-nowrap justify-start gap-3 overflow-x-auto px-1 pb-2 sm:justify-center" role="tablist" aria-label="Product categories">
               {CATEGORIES.map((category) => (
                 <button
                   type="button"
                   key={category}
                   onClick={() => setActiveCategory(category)}
-                  className={`rounded-full border px-5 py-2.5 text-sm font-bold transition duration-300 ${activeCategory === category
+                  role="tab"
+                  aria-selected={activeCategory === category}
+                  className={`category-pill shrink-0 rounded-full border px-5 py-2.5 text-sm font-bold transition duration-300 ${activeCategory === category
                     ? "border-[#FF007F] bg-[#FF007F] text-white shadow-lg shadow-pink-500/20"
                     : "border-white bg-white text-[#5D4037] shadow-sm hover:-translate-y-0.5 hover:border-pink-100 hover:bg-pink-50 hover:text-[#FF007F]"
                     }`}
@@ -2335,6 +2331,22 @@ function App() {
           }
         }
 
+        /* Product category strip — always one horizontal row. */
+        .category-scroll {
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+          overscroll-behavior-x: contain;
+          -webkit-overflow-scrolling: touch;
+        }
+
+        .category-scroll::-webkit-scrollbar {
+          display: none;
+        }
+
+        .category-pill {
+          white-space: nowrap;
+        }
+
         /* Home showcase — only the home section uses these styles. */
         .hero-showcase-shell {
           min-height: 760px;
@@ -2350,7 +2362,8 @@ function App() {
 
         .hero-showcase-card {
           position: relative;
-          width: min(100%, 1390px);
+          width: 100%;
+          max-width: 1390px;
           min-height: 620px;
           overflow: hidden;
           border: 1px solid rgba(255, 255, 255, .9);
@@ -2393,42 +2406,6 @@ function App() {
           align-items: center;
           justify-content: space-between;
           padding: 28px 34px 0;
-        }
-
-        .hero-showcase-brand {
-          display: flex;
-          align-items: center;
-          gap: 11px;
-        }
-
-        .hero-showcase-brand-mark {
-          display: grid;
-          width: 48px;
-          height: 48px;
-          place-items: center;
-          border-radius: 15px;
-          background: linear-gradient(145deg, #ff3b98, #ff007f);
-          color: #fff;
-          font-weight: 900;
-          box-shadow: 0 10px 24px rgba(255,0,127,.24);
-        }
-
-        .hero-showcase-brand > span:last-child {
-          display: flex;
-          flex-direction: column;
-        }
-
-        .hero-showcase-brand strong {
-          color: #5d4037;
-          font-size: 17px;
-          line-height: 1.05;
-        }
-
-        .hero-showcase-brand small {
-          margin-top: 3px;
-          color: #ff007f;
-          font-size: 12px;
-          font-weight: 800;
         }
 
         .hero-showcase-stats {
@@ -2755,30 +2732,35 @@ function App() {
         @media (max-width: 900px) {
           .hero-showcase-shell {
             min-height: auto;
-            padding: 100px 14px 26px;
+            padding: 94px 12px 24px;
           }
 
           .hero-showcase-card {
-            min-height: 720px;
+            min-height: auto;
             border-radius: 28px;
           }
 
           .hero-showcase-top {
-            padding: 20px 20px 0;
+            min-height: 42px;
+            padding: 18px 18px 0;
+          }
+
+          .hero-showcase-top-spacer {
+            flex: 1;
           }
 
           .hero-showcase-stats {
-            gap: 13px;
+            gap: 18px;
           }
 
           .hero-showcase-stats strong {
-            font-size: 16px;
+            font-size: 17px;
           }
 
           .hero-showcase-content {
             grid-template-columns: 1fr;
             min-height: auto;
-            padding: 20px 20px 16px;
+            padding: 14px 18px 12px;
             text-align: center;
           }
 
@@ -2799,39 +2781,55 @@ function App() {
 
           .hero-showcase-product {
             order: 2;
-            min-height: 350px;
+            min-height: 330px;
+            margin-top: -2px;
           }
 
           .hero-product-image {
-            width: min(64vw,330px);
-            max-height: 350px;
+            width: min(62vw, 320px);
+            max-height: 320px;
           }
 
           .hero-product-halo {
-            width: min(67vw,350px);
+            width: min(66vw, 330px);
           }
 
           .hero-product-shadow {
-            bottom: 35px;
+            bottom: 28px;
           }
 
           .hero-showcase-flavours {
             order: 3;
             justify-self: stretch;
             width: 100%;
+            margin-top: 4px;
           }
 
           .hero-showcase-flavours > p {
+            margin-bottom: 9px;
             text-align: left;
           }
 
-          /* Horizontal flavour strip on tablet/mobile. */
+          /* The four showcase choices remain one horizontal row. */
           .hero-flavour-list {
-            display: grid;
-            grid-template-columns: repeat(4, minmax(0, 1fr));
+            display: flex;
+            flex-direction: row;
+            gap: 8px;
+            width: 100%;
+            overflow-x: auto;
+            padding: 2px 2px 8px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+          }
+
+          .hero-flavour-list::-webkit-scrollbar {
+            display: none;
           }
 
           .hero-flavour {
+            width: auto;
+            min-width: 54px;
+            flex: 0 0 auto;
             justify-content: center;
             padding: 6px;
           }
@@ -2845,77 +2843,134 @@ function App() {
           }
 
           .hero-showcase-bottom {
-            flex-wrap: wrap;
-            gap: 10px 18px;
-            padding-bottom: 20px;
+            display: flex;
+            flex-wrap: nowrap;
+            justify-content: flex-start;
+            gap: 18px;
+            width: 100%;
+            overflow-x: auto;
+            padding: 0 18px 18px;
+            scrollbar-width: none;
+            -ms-overflow-style: none;
+            white-space: nowrap;
+          }
+
+          .hero-showcase-bottom::-webkit-scrollbar {
+            display: none;
+          }
+
+          .hero-showcase-bottom > div {
+            flex: 0 0 auto;
           }
         }
 
         @media (max-width: 520px) {
           .hero-showcase-shell {
-            padding: 92px 10px 18px;
+            padding: 88px 8px 16px;
           }
 
           .hero-showcase-card {
-            min-height: 700px;
-            border-radius: 24px;
+            border-radius: 22px;
           }
 
           .hero-showcase-top {
-            align-items: flex-start;
-          }
-
-          .hero-showcase-brand-mark {
-            width: 42px;
-            height: 42px;
-          }
-
-          .hero-showcase-brand strong {
-            font-size: 14px;
-          }
-
-          .hero-showcase-brand small {
-            font-size: 10px;
+            padding: 14px 14px 0;
           }
 
           .hero-showcase-stats {
-            display: none;
+            gap: 13px;
+          }
+
+          .hero-showcase-stats strong {
+            font-size: 15px;
+          }
+
+          .hero-showcase-stats span {
+            font-size: 8px;
+            letter-spacing: .05em;
+          }
+
+          .hero-showcase-content {
+            padding: 12px 14px 8px;
+          }
+
+          .hero-showcase-kicker {
+            margin-bottom: 9px;
+            font-size: 9px;
+            letter-spacing: .22em;
           }
 
           .hero-showcase-copy h1 {
-            font-size: 43px;
+            font-size: clamp(36px, 12vw, 49px);
+            line-height: .92;
+          }
+
+          .hero-showcase-copy p {
+            max-width: 290px;
+            margin-top: 13px;
+            font-size: 12px;
+            line-height: 1.5;
+          }
+
+          .hero-showcase-price {
+            margin-top: 13px;
+          }
+
+          .hero-showcase-price strong {
+            font-size: 21px;
+          }
+
+          .hero-showcase-actions {
+            margin-top: 15px;
+          }
+
+          .hero-showcase-order,
+          .hero-showcase-menu {
+            min-height: 41px;
+            padding: 0 15px;
+            font-size: 11px;
           }
 
           .hero-showcase-product {
-            min-height: 300px;
+            min-height: 270px;
           }
 
           .hero-product-image {
-            width: 72vw;
-            max-height: 310px;
+            width: min(72vw, 290px);
+            max-height: 285px;
           }
 
           .hero-product-halo {
-            width: 75vw;
+            width: min(76vw, 300px);
           }
 
-          .hero-flavour-list {
-            gap: 5px;
+          .hero-product-shadow {
+            bottom: 22px;
+            width: 155px;
+          }
+
+          .hero-showcase-flavours {
+            margin-top: 0;
+          }
+
+          .hero-showcase-flavours > p {
+            font-size: 9px;
           }
 
           .hero-flavour {
-            padding: 5px;
+            min-width: 48px;
           }
 
           .hero-flavour-image {
-            width: 40px;
-            height: 40px;
-            flex-basis: 40px;
+            width: 36px;
+            height: 36px;
+            flex-basis: 36px;
           }
 
           .hero-showcase-bottom {
-            font-size: 9px;
-            justify-content: space-between;
+            gap: 15px;
+            padding: 0 14px 15px;
+            font-size: 8px;
           }
         }
 
