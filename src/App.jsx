@@ -215,6 +215,8 @@ const CATEGORIES = [
   "Gifting",
 ];
 
+const SHOWCASE_PRODUCTS = PRODUCTS.filter((product) => product.category === "Ice Cream").slice(0, 4);
+
 const OFFERS = [
   {
     id: 1,
@@ -249,6 +251,7 @@ function App() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [activeCategory, setActiveCategory] = useState("All");
   const [menuIndex, setMenuIndex] = useState(0);
+  const [showcaseIndex, setShowcaseIndex] = useState(0);
   const [cart, setCart] = useState([]);
   const [showCheckout, setShowCheckout] = useState(false);
   const [orderStatus, setOrderStatus] = useState("");
@@ -286,6 +289,16 @@ function App() {
     }, 7000);
     return () => window.clearInterval(timer);
   }, []);
+
+  // Rotate the hero showcase gently between featured flavours.
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      setShowcaseIndex((current) => (current + 1) % SHOWCASE_PRODUCTS.length);
+    }, 5200);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const showcaseProduct = SHOWCASE_PRODUCTS[showcaseIndex] || SHOWCASE_PRODUCTS[0];
 
   const filteredProducts = useMemo(() => {
     if (activeCategory === "All") return PRODUCTS;
@@ -503,69 +516,95 @@ function App() {
       </header>
 
       <main>
-        <section id="home" className="relative bg-[#fff4f9] scroll-mt-0">
-          <div className="relative mx-auto w-full overflow-hidden">
-            <div className="home-reference-frame relative mx-auto w-full max-w-[1536px]">
-              <img
-                src="/images/home-hero.png"
-                alt="Baskin Robbins by Shanzzy"
-                className="block h-auto w-full select-none"
-                draggable="false"
-              />
+        <section id="home" className="relative scroll-mt-0 overflow-hidden bg-[#fff7fb]">
+          <div className="hero-showcase-shell">
+            <div className="hero-showcase-card">
+              <div className="hero-showcase-glow hero-showcase-glow-one" />
+              <div className="hero-showcase-glow hero-showcase-glow-two" />
 
-              <div className="hero-ambient" aria-hidden="true">
-                <span className="hero-ambient-orb hero-ambient-orb-one" />
-                <span className="hero-ambient-orb hero-ambient-orb-two" />
-                <span className="hero-ambient-ring hero-ambient-ring-one" />
-                <span className="hero-ambient-ring hero-ambient-ring-two" />
-                <span className="hero-sparkle hero-sparkle-one" />
-                <span className="hero-sparkle hero-sparkle-two" />
-                <span className="hero-sparkle hero-sparkle-three" />
-                <span className="hero-sparkle hero-sparkle-four" />
+              <div className="hero-showcase-top">
+                <div className="hero-showcase-brand">
+                  <span className="hero-showcase-brand-mark">BR</span>
+                  <span>
+                    <strong>Baskin Robbins</strong>
+                    <small>by Shanzzy</small>
+                  </span>
+                </div>
+
+                <div className="hero-showcase-stats" aria-label="Store highlights">
+                  <div><strong>31</strong><span>Rewards</span></div>
+                  <div><strong>19+</strong><span>Treats</span></div>
+                  <div><strong>4</strong><span>Flavours</span></div>
+                </div>
               </div>
 
-              {/* Navigation hotspots sit above the decorative background. */}
-              <div className="absolute inset-0 z-20">
-                <button type="button" aria-label="Home" onClick={() => scrollTo("home")} className="home-hotspot home-hotspot-home" />
-                <button type="button" aria-label="Menu" onClick={() => scrollTo("menu")} className="home-hotspot home-hotspot-menu" />
-                <button type="button" aria-label="Order Online" onClick={() => scrollTo("products")} className="home-hotspot home-hotspot-order" />
-                <button type="button" aria-label="About" onClick={() => scrollTo("offers")} className="home-hotspot home-hotspot-about" />
-                <button type="button" aria-label="Contact" onClick={() => scrollTo("contact")} className="home-hotspot home-hotspot-contact" />
-                <button type="button" aria-label="View location" onClick={() => scrollTo("contact")} className="home-hotspot home-hotspot-location" />
-                <button type="button" aria-label="Open cart" onClick={() => scrollTo("order")} className="home-hotspot home-hotspot-cart" />
-
-                <div className="hero-copy">
-                  <p className="hero-eyebrow">SCOOPS OF HAPPINESS</p>
-                  <h1>
-                    <span>A LITTLE</span>
-                    <strong>SWEETNESS</strong>
-                    <span>GOES A LONG WAY.</span>
-                  </h1>
-                  <p className="hero-description">
-                    From your favourite scoop to a cake made for the whole table,
-                    there’s always a reason to make today a little sweeter.
-                  </p>
-                  <div className="hero-actions">
-                    <button type="button" onClick={() => scrollTo("products")} className="hero-primary">
-                      Order Now
-                      <span aria-hidden="true">→</span>
-                    </button>
-                    <button type="button" onClick={() => scrollTo("menu")} className="hero-secondary">
-                      Explore Menu
-                    </button>
-                  </div>
-                  <div className="hero-meta" aria-label="Available treats">
-                    <span>Ice Creams</span><i />
-                    <span>Cakes</span><i />
-                    <span>Sundaes</span><i />
-                    <span>Beverages</span><i />
-                    <span>Desserts</span>
+              <div className="hero-showcase-content">
+                <div className="hero-showcase-copy">
+                  <p className="hero-showcase-kicker">FEATURED FLAVOUR</p>
+                  <div className="hero-showcase-title-wrap" key={showcaseProduct.id}>
+                    <h1>{showcaseProduct.name}</h1>
+                    <p>{showcaseProduct.description}</p>
+                    <div className="hero-showcase-price">
+                      <span>Starting from</span>
+                      <strong>₹{showcaseProduct.price}</strong>
+                    </div>
+                    <div className="hero-showcase-actions">
+                      <button
+                        type="button"
+                        onClick={() => addToCart(showcaseProduct)}
+                        className="hero-showcase-order"
+                      >
+                        Order Now
+                        <span aria-hidden="true">→</span>
+                      </button>
+                      <button
+                        type="button"
+                        onClick={() => scrollTo("products")}
+                        className="hero-showcase-menu"
+                      >
+                        View Menu
+                      </button>
+                    </div>
                   </div>
                 </div>
 
-                <button type="button" aria-label="Scroll to menu" onClick={() => scrollTo("menu")} className="hero-scroll-cue">
-                  <span />
-                </button>
+                <div className="hero-showcase-product" key={`product-${showcaseProduct.id}`}>
+                  <div className="hero-product-halo" />
+                  <div className="hero-product-shadow" />
+                  <img
+                    src={showcaseProduct.image}
+                    alt={showcaseProduct.name}
+                    className="hero-product-image"
+                    referrerPolicy="no-referrer"
+                  />
+                </div>
+
+                <div className="hero-showcase-flavours">
+                  <p>Explore flavours</p>
+                  <div className="hero-flavour-list">
+                    {SHOWCASE_PRODUCTS.map((product, index) => (
+                      <button
+                        type="button"
+                        key={product.id}
+                        onClick={() => setShowcaseIndex(index)}
+                        className={`hero-flavour ${index === showcaseIndex ? "active" : ""}`}
+                        aria-label={`Show ${product.name}`}
+                      >
+                        <span className="hero-flavour-image">
+                          <img src={product.image} alt="" referrerPolicy="no-referrer" />
+                        </span>
+                        <span>{product.name}</span>
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              <div className="hero-showcase-bottom">
+                <div><span className="hero-bottom-dot" /> Premium ice creams</div>
+                <div><span className="hero-bottom-dot" /> Cakes & desserts</div>
+                <div><span className="hero-bottom-dot" /> Fresh beverages</div>
+                <div><span className="hero-bottom-dot" /> Sweet rewards</div>
               </div>
             </div>
           </div>
@@ -2295,6 +2334,603 @@ function App() {
             transition-duration: 0.001ms !important;
           }
         }
+
+
+        /* ---------------------------------------------------------
+           PRODUCT SHOWCASE HERO
+        --------------------------------------------------------- */
+        .hero-showcase-shell {
+  min-height: 760px;
+  padding: 118px 24px 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background:
+  radial-gradient(circle at 14% 22%, rgba(255, 0, 127, .10), transparent 28%),
+    radial-gradient(circle at 88% 70%, rgba(255, 176, 210, .18), transparent 30%),
+    linear-gradient(135deg, #fffaff 0%, #fff3f8 52%, #fff9fc 100%);
+}
+
+        .hero-showcase-card {
+  position: relative;
+  width: min(100%, 1390px);
+  min-height: 620px;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, .9);
+  border-radius: 34px;
+  background:
+  radial-gradient(circle at 56% 48%, rgba(255, 255, 255, .96), transparent 34%),
+    linear-gradient(135deg, #fff7fb 0%, #fff1f6 48%, #ffeef5 100%);
+  box-shadow: 0 35px 90px rgba(93, 64, 55, .13);
+}
+
+        .hero-showcase-card::before {
+  content: "";
+  position: absolute;
+  width: 620px;
+  height: 620px;
+  right: 17%;
+  top: 3%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 0, 127, .09);
+  box-shadow:
+  0 0 0 28px rgba(255, 0, 127, .025),
+    0 0 0 58px rgba(255, 0, 127, .018);
+  pointer-events: none;
+}
+
+        .hero-showcase-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(110deg, transparent 0%, rgba(255, 255, 255, .42) 48%, transparent 62%);
+  transform: translateX(-130%);
+  animation: showcaseSheen 8s ease-in-out infinite;
+  pointer-events: none;
+}
+
+        .hero-showcase-top {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 28px 34px 0;
+}
+
+        .hero-showcase-brand {
+  display: flex;
+  align-items: center;
+  gap: 11px;
+}
+
+        .hero-showcase-brand-mark {
+  display: grid;
+  width: 48px;
+  height: 48px;
+  place-items: center;
+  border-radius: 15px;
+  background: linear-gradient(145deg, #ff3b98, #ff007f);
+  color: #fff;
+  font-weight: 900;
+  box-shadow: 0 10px 24px rgba(255, 0, 127, .24);
+}
+
+        .hero-showcase-brand span: last-child {
+  display: flex;
+  flex-direction: column;
+}
+
+        .hero-showcase-brand strong {
+  color: #5d4037;
+  font-size: 17px;
+  line-height: 1.05;
+}
+
+        .hero-showcase-brand small {
+  margin-top: 3px;
+  color: #ff007f;
+  font-size: 12px;
+  font-weight: 800;
+}
+
+        .hero-showcase-stats {
+  display: flex;
+  gap: 30px;
+}
+
+        .hero-showcase-stats div {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+        .hero-showcase-stats strong {
+  color: #5d4037;
+  font-size: 22px;
+  line-height: 1;
+}
+
+        .hero-showcase-stats span {
+  margin-top: 5px;
+  color: #927d78;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+        .hero-showcase-content {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: .82fr 1.2fr .55fr;
+  align-items: center;
+  min-height: 500px;
+  padding: 18px 34px 22px;
+}
+
+        .hero-showcase-copy {
+  position: relative;
+  z-index: 4;
+  max-width: 350px;
+}
+
+        .hero-showcase-kicker {
+  margin: 0 0 13px;
+  color: #ff007f;
+  font-size: 11px;
+  font-weight: 900;
+  letter-spacing: .28em;
+}
+
+        .hero-showcase-title-wrap {
+  animation: showcaseTextIn .65s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+        .hero-showcase-copy h1 {
+  margin: 0;
+  color: #3f302c;
+  font-size: clamp(40px, 4.2vw, 68px);
+  font-weight: 950;
+  letter-spacing: -.055em;
+  line-height: .94;
+}
+
+        .hero-showcase-copy p {
+  max-width: 300px;
+  margin: 18px 0 0;
+  color: #806d68;
+  font-size: 14px;
+  line-height: 1.65;
+}
+
+        .hero-showcase-price {
+  display: flex;
+  align-items: baseline;
+  gap: 9px;
+  margin-top: 19px;
+}
+
+        .hero-showcase-price span {
+  color: #9c8a85;
+  font-size: 10px;
+}
+
+        .hero-showcase-price strong {
+  color: #ff007f;
+  font-size: 24px;
+  font-weight: 900;
+}
+
+        .hero-showcase-actions {
+  display: flex;
+  gap: 10px;
+  margin-top: 22px;
+}
+
+        .hero-showcase-order,
+        .hero-showcase-menu {
+  min-height: 44px;
+  padding: 0 19px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 800;
+  transition: transform .25s ease, box-shadow .25s ease, background .25s ease;
+}
+
+        .hero-showcase-order {
+  border: 0;
+  background: #ff007f;
+  color: white;
+  box-shadow: 0 12px 28px rgba(255, 0, 127, .22);
+}
+
+        .hero-showcase-order span {
+  margin-left: 8px;
+}
+
+        .hero-showcase-menu {
+  border: 1px solid rgba(93, 64, 55, .14);
+  background: rgba(255, 255, 255, .65);
+  color: #5d4037;
+}
+
+        .hero-showcase-order: hover,
+        .hero-showcase-menu:hover {
+  transform: translateY(-2px);
+}
+
+        .hero-showcase-product {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 480px;
+  animation: showcaseProductIn .75s cubic-bezier(.16, 1, .3, 1) both;
+}
+
+        .hero-product-halo {
+  position: absolute;
+  width: min(31vw, 410px);
+  aspect-ratio: 1;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(255, 255, 255, .98) 0%, rgba(255, 220, 235, .65) 48%, rgba(255, 0, 127, .06) 72%, transparent 73%);
+}
+
+        .hero-product-halo::after {
+  content: "";
+  position: absolute;
+  inset: 8%;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 0, 127, .10);
+}
+
+        .hero-product-shadow {
+  position: absolute;
+  bottom: 48px;
+  width: 210px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(93, 64, 55, .15);
+  filter: blur(18px);
+  animation: showcaseShadow 3.8s ease-in-out infinite;
+}
+
+        .hero-product-image {
+  position: relative;
+  z-index: 2;
+  width: min(31vw, 430px);
+  max-height: 470px;
+  object-fit: contain;
+  filter: drop-shadow(0 28px 22px rgba(93, 64, 55, .17));
+  animation: showcaseFloat 4.8s ease-in-out infinite;
+}
+
+        .hero-showcase-flavours {
+  position: relative;
+  z-index: 4;
+  justify-self: end;
+  width: 180px;
+}
+
+        .hero-showcase-flavours > p {
+  margin: 0 0 12px;
+  color: #806d68;
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+}
+
+        .hero-flavour-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+        .hero-flavour {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  gap: 9px;
+  padding: 7px 9px;
+  border: 1px solid transparent;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, .58);
+  color: #806d68;
+  text-align: left;
+  transition: all .3s ease;
+}
+
+        .hero-flavour:hover {
+  background: rgba(255, 255, 255, .9);
+  transform: translateX(-3px);
+}
+
+        .hero-flavour.active {
+  border-color: rgba(255, 0, 127, .12);
+  background: rgba(255, 255, 255, .94);
+  color: #5d4037;
+  box-shadow: 0 9px 25px rgba(93, 64, 55, .08);
+  transform: translateX(-7px);
+}
+
+        .hero-flavour-image {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  flex: 0 0 34px;
+  place-items: center;
+  overflow: hidden;
+  border-radius: 50%;
+  background: #fff5f9;
+}
+
+        .hero-flavour-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+        .hero-flavour > span: last-child {
+  overflow: hidden;
+  font-size: 10px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+        .hero-showcase-bottom {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  justify-content: center;
+  gap: 28px;
+  padding: 0 28px 24px;
+  color: #8c7772;
+  font-size: 10px;
+  font-weight: 700;
+}
+
+        .hero-showcase-bottom > div {
+  display: flex;
+  align-items: center;
+  gap: 7px;
+}
+
+        .hero-bottom-dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: #ff007f;
+  box-shadow: 0 0 0 5px rgba(255, 0, 127, .07);
+}
+
+        .hero-showcase-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(10px);
+  pointer-events: none;
+}
+
+        .hero-showcase-glow-one {
+  width: 240px;
+  height: 240px;
+  left: -110px;
+  bottom: -100px;
+  background: rgba(255, 0, 127, .12);
+}
+
+        .hero-showcase-glow-two {
+  width: 220px;
+  height: 220px;
+  right: -90px;
+  top: 70px;
+  background: rgba(255, 170, 210, .20);
+}
+
+@keyframes showcaseProductIn {
+          from { opacity: 0; transform: translateY(20px) scale(.97); }
+          to { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+@keyframes showcaseTextIn {
+          from { opacity: 0; transform: translateX(-16px); }
+          to { opacity: 1; transform: translateX(0); }
+}
+
+@keyframes showcaseFloat {
+  0%, 100% { transform: translateY(0) rotate(-1deg);
+}
+50% { transform: translateY(-11px) rotate(1deg); }
+        }
+
+@keyframes showcaseShadow {
+  0%, 100% { transform: scaleX(1); opacity: .55; }
+  50% { transform: scaleX(.78); opacity: .35; }
+}
+
+@keyframes showcaseSheen {
+  0%, 58%, 100% { transform: translateX(-130%); }
+  72% { transform: translateX(130%); }
+}
+
+@media(max-width: 900px) {
+          .hero-showcase-shell {
+    min-height: auto;
+    padding: 100px 14px 26px;
+  }
+
+          .hero-showcase-card {
+    min-height: 720px;
+    border-radius: 28px;
+  }
+
+          .hero-showcase-top {
+    padding: 20px 20px 0;
+  }
+
+          .hero-showcase-stats {
+    gap: 13px;
+  }
+
+          .hero-showcase-stats strong {
+    font-size: 16px;
+  }
+
+          .hero-showcase-content {
+    grid-template-columns: 1fr;
+    min-height: auto;
+    padding: 20px 20px 16px;
+    text-align: center;
+  }
+
+          .hero-showcase-copy {
+    max-width: 100%;
+    order: 1;
+  }
+
+          .hero-showcase-copy p {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+          .hero-showcase-price,
+          .hero-showcase-actions {
+    justify-content: center;
+  }
+
+          .hero-showcase-product {
+    order: 2;
+    min-height: 350px;
+  }
+
+          .hero-product-image {
+    width: min(64vw, 330px);
+    max-height: 350px;
+  }
+
+          .hero-product-halo {
+    width: min(67vw, 350px);
+  }
+
+          .hero-product-shadow {
+    bottom: 35px;
+  }
+
+          .hero-showcase-flavours {
+    order: 3;
+    justify-self: stretch;
+    width: 100%;
+  }
+
+          .hero-showcase-flavours > p {
+    text-align: left;
+  }
+
+          .hero-flavour-list {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+
+          .hero-flavour {
+    justify-content: center;
+    padding: 6px;
+  }
+
+          .hero-flavour > span: last-child {
+    display: none;
+  }
+
+          .hero-flavour.active {
+    transform: translateY(-2px);
+  }
+
+          .hero-showcase-bottom {
+    flex-wrap: wrap;
+    gap: 10px 18px;
+    padding-bottom: 20px;
+  }
+}
+
+@media(max-width: 520px) {
+          .hero-showcase-shell {
+    padding: 92px 10px 18px;
+  }
+
+          .hero-showcase-card {
+    min-height: 700px;
+    border-radius: 24px;
+  }
+
+          .hero-showcase-top {
+    align-items: flex-start;
+  }
+
+          .hero-showcase-brand-mark {
+    width: 42px;
+    height: 42px;
+  }
+
+          .hero-showcase-brand strong {
+    font-size: 14px;
+  }
+
+          .hero-showcase-brand small {
+    font-size: 10px;
+  }
+
+          .hero-showcase-stats {
+    display: none;
+  }
+
+          .hero-showcase-copy h1 {
+    font-size: 43px;
+  }
+
+          .hero-showcase-product {
+    min-height: 300px;
+  }
+
+          .hero-product-image {
+    width: 72vw;
+    max-height: 310px;
+  }
+
+          .hero-product-halo {
+    width: 75vw;
+  }
+
+          .hero-flavour-list {
+    gap: 5px;
+  }
+
+          .hero-flavour {
+    padding: 5px;
+  }
+
+          .hero-flavour-image {
+    width: 40px;
+    height: 40px;
+    flex-basis: 40px;
+  }
+
+          .hero-showcase-bottom {
+    font-size: 9px;
+    justify-content: space-between;
+  }
+}
+
+@media(prefers-reduced-motion: reduce) {
+          .hero-showcase-card::after,
+          .hero-product-image,
+          .hero-product-shadow {
+    animation: none!important;
+  }
+}
+
+
       `}</style>
     </div>
   );
