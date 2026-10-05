@@ -4,13 +4,239 @@ html {
   scroll-behavior: smooth;
 }
 
+* {
+  box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+html,
+body,
+#root {
+  width: 100%;
+  min-height: 100%;
+}
+
 body {
   margin: 0;
   font-family: "Poppins", sans-serif;
   background: #fffafc;
   color: #5d4037;
+  overflow-x: hidden;
 }
 
-* {
-  box-sizing: border-box;
+button,
+a,
+input,
+textarea,
+select {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+img {
+  max-width: 100%;
+}
+
+::selection {
+  background: rgba(255, 0, 127, 0.2);
+  color: #5d4037;
+}
+
+/* --------------------------------
+   HERO RESPONSIVE FOUNDATION
+--------------------------------- */
+
+.home-reference-frame {
+  position: relative;
+  width: 100%;
+  max-width: 1536px;
+  min-height: 0;
+  overflow: hidden;
+  background: #f7a8c8;
+  line-height: 0;
+}
+
+.home-reference-frame>img {
+  display: block;
+  width: 100%;
+  height: auto;
+  max-width: none;
+  user-select: none;
+  -webkit-user-drag: none;
+}
+
+/* --------------------------------
+   HERO COPY
+--------------------------------- */
+
+.hero-copy {
+  line-height: normal;
+}
+
+.hero-copy h1 {
+  margin: 0;
+}
+
+.hero-description {
+  line-height: 1.65;
+}
+
+.hero-actions {
+  line-height: normal;
+}
+
+/* --------------------------------
+   CONTACT ICONS
+--------------------------------- */
+
+.contact-icon {
+  display: flex;
+  width: 48px;
+  height: 48px;
+  flex: 0 0 48px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 999px;
+  background: #fff0f7;
+  color: #ff007f;
+}
+
+.contact-icon svg {
+  width: 21px;
+  height: 21px;
+}
+
+/* --------------------------------
+   MOBILE
+--------------------------------- */
+
+@media (max-width: 900px) {
+  .home-reference-frame {
+    min-height: 720px;
+  }
+
+  /*
+    The desktop image is wide.
+    On smaller screens we enlarge it slightly so the
+    central pink negative space remains usable.
+  */
+  .home-reference-frame>img {
+    width: 100%;
+    min-width: 100%;
+    height: auto;
+  }
+
+  .hero-copy {
+    width: min(88%, 620px);
+  }
+}
+
+@media (max-width: 640px) {
+  .home-reference-frame {
+    min-height: 760px;
+  }
+
+  /*
+    Don't let the hero become horizontally scrollable.
+  */
+  .home-reference-frame>img {
+    width: auto;
+    min-width: 0;
+    height: 760px;
+    max-width: none;
+    position: absolute;
+    left: 50%;
+    top: 0;
+    transform: translateX(-50%);
+  }
+
+  .hero-copy {
+    width: calc(100% - 40px);
+    max-width: 430px;
+  }
+
+  .hero-copy h1 {
+    font-size: clamp(2.1rem, 10vw, 3.5rem);
+  }
+
+  .hero-description {
+    font-size: 0.9rem;
+    max-width: 360px;
+  }
+
+  .hero-actions {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  /*
+    Hide desktop-only navigation hotspots on phones.
+    The actual responsive navbar/menu should handle navigation.
+  */
+  .home-hotspot-home,
+  .home-hotspot-menu,
+  .home-hotspot-order,
+  .home-hotspot-about,
+  .home-hotspot-contact,
+  .home-hotspot-location,
+  .home-hotspot-cart {
+    display: none;
+  }
+
+  .home-hotspot-order-now {
+    left: 20%;
+    width: 60%;
+    top: 52%;
+  }
+
+  .home-hotspot-explore {
+    left: 20%;
+    width: 60%;
+    top: 60%;
+  }
+}
+
+@media (max-width: 420px) {
+  .home-reference-frame {
+    min-height: 720px;
+  }
+
+  .home-reference-frame>img {
+    height: 720px;
+  }
+
+  .hero-copy {
+    width: calc(100% - 28px);
+  }
+
+  .hero-copy h1 {
+    font-size: 2.15rem;
+  }
+
+  .hero-description {
+    font-size: 0.82rem;
+    line-height: 1.55;
+  }
+}
+
+/* --------------------------------
+   REDUCE MOTION
+--------------------------------- */
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
 }

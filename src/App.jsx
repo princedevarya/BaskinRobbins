@@ -1037,9 +1037,23 @@ function App() {
 
                 <div className="mt-10 space-y-7">
                   <div className="flex gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-pink-50 text-xl">
-
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-pink-50 text-[#FF007F]">
+                      {/* Location SVG */}
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M20 10c0 5-8 12-8 12S4 15 4 10a8 8 0 1 1 16 0Z" />
+                        <circle cx="12" cy="10" r="2.5" />
+                      </svg>
                     </div>
+
                     <div>
                       <h3 className="font-bold">Location</h3>
                       <p className="mt-1 text-gray-500">
@@ -1049,9 +1063,32 @@ function App() {
                   </div>
 
                   <div className="flex gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-pink-50 text-xl">
-
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-pink-50 text-[#FF007F]">
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2
+        19.79 19.79 0 0 1-8.63-3.07
+        19.5 19.5 0 0 1-6-6
+        A19.79 19.79 0 0 1 2.12 4.18
+        A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72
+        12.84 12.84 0 0 0 .7 2.81
+        2 2 0 0 1-.45 2.11L8.09 9.91
+        a16 16 0 0 0 6 6l1.27-1.27
+        a2 2 0 0 1 2.11-.45
+        12.84 12.84 0 0 0 2.81.7
+        A2 2 0 0 1 22 16.92Z"
+                        />
+                      </svg>
                     </div>
+
                     <div>
                       <h3 className="font-bold">Phone</h3>
                       <a
@@ -1079,12 +1116,27 @@ function App() {
                   </div>
 
                   <div className="flex gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-pink-50 text-xl">
-
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-pink-50 text-[#FF007F]">
+                      <svg
+                        width="22"
+                        height="22"
+                        viewBox="0 0 24 24"
+                        fill="none"
+                        stroke="currentColor"
+                        strokeWidth="1.8"
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                      >
+                        <circle cx="12" cy="12" r="9" />
+                        <path d="M12 7v5l3 2" />
+                      </svg>
                     </div>
+
                     <div>
                       <h3 className="font-bold">Opening Hours</h3>
-                      <p className="mt-1 text-gray-500">Open Daily</p>
+                      <p className="mt-1 text-gray-500">
+                        Open Daily
+                      </p>
                     </div>
                   </div>
 
