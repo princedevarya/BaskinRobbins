@@ -2255,15 +2255,10 @@ function App() {
         }
 
         .product-card {
-          transform: translateY(28px);
-          opacity: 0;
-          transition: transform .65s cubic-bezier(.16,1,.3,1), opacity .65s ease, box-shadow .45s ease;
-          will-change: transform;
-        }
-
-        .product-card.is-visible {
           transform: translateY(0);
           opacity: 1;
+          transition: transform .45s cubic-bezier(.16,1,.3,1), box-shadow .45s ease;
+          will-change: transform;
         }
 
         .product-card:hover {
