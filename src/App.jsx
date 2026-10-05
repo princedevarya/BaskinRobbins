@@ -725,7 +725,8 @@ function App() {
             {filteredProducts.length > 0 ? (
               <div
                 key={activeCategory}
-                className="grid grid-cols-1 gap-7 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4"
+                className="products-horizontal"
+                aria-label={`${activeCategory} products`}
               >
                 {filteredProducts.map((product, index) => (
                   <article
@@ -2087,6 +2088,43 @@ function App() {
           animation: rewardPulse 3.5s ease-in-out infinite;
         }
 
+        /* Product catalogue — one horizontal scrolling row. */
+        .products-horizontal {
+          display: flex;
+          flex-wrap: nowrap;
+          gap: 28px;
+          width: 100%;
+          overflow-x: auto;
+          overflow-y: hidden;
+          padding: 8px 4px 24px;
+          scroll-snap-type: x proximity;
+          scroll-padding-left: 4px;
+          overscroll-behavior-x: contain;
+          -webkit-overflow-scrolling: touch;
+          scrollbar-width: thin;
+          scrollbar-color: rgba(255, 0, 127, .35) transparent;
+        }
+
+        .products-horizontal::-webkit-scrollbar {
+          height: 7px;
+        }
+
+        .products-horizontal::-webkit-scrollbar-track {
+          background: rgba(255, 0, 127, .05);
+          border-radius: 999px;
+        }
+
+        .products-horizontal::-webkit-scrollbar-thumb {
+          background: rgba(255, 0, 127, .35);
+          border-radius: 999px;
+        }
+
+        .products-horizontal .product-card {
+          flex: 0 0 300px;
+          width: 300px;
+          scroll-snap-align: start;
+        }
+
         .product-card {
           opacity: 1;
           transform: translateY(0);
@@ -2345,6 +2383,32 @@ function App() {
 
         .category-pill {
           white-space: nowrap;
+        }
+
+        @media (max-width: 900px) {
+          .products-horizontal {
+            gap: 18px;
+            padding-right: 12px;
+          }
+
+          .products-horizontal .product-card {
+            flex-basis: 290px;
+            width: 290px;
+          }
+        }
+
+        @media (max-width: 640px) {
+          .products-horizontal {
+            gap: 14px;
+            padding-left: 2px;
+            padding-right: 12px;
+            scroll-snap-type: x mandatory;
+          }
+
+          .products-horizontal .product-card {
+            flex-basis: min(82vw, 310px);
+            width: min(82vw, 310px);
+          }
         }
 
         /* Home showcase — only the home section uses these styles. */
