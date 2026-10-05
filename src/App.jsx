@@ -218,27 +218,30 @@ const CATEGORIES = [
 const OFFERS = [
   {
     id: 1,
-    icon: "",
-    title: "Sweet Rewards",
-    subtitle: "Make every visit sweeter",
+    icon: "31",
+    badge: "MONTHLY REWARD",
+    title: "31st of the Month",
+    subtitle: "31% OFF",
     description:
-      "Ask in-store about the Baskin Robbins rewards programme and make your favourite treats even more rewarding.",
+      "Make the 31st extra sweet with 31% off your favourite treats. Ask in-store for the applicable terms.",
   },
   {
     id: 2,
-    icon: "",
-    title: "Celebrate With Cake",
-    subtitle: "Make the moment special",
+    icon: "15",
+    badge: "VISIT REWARD",
+    title: "15th Visit",
+    subtitle: "FREE ICE CREAM CAKE",
     description:
-      "Order an ice cream cake for birthdays, anniversaries and every celebration worth remembering.",
+      "Reach your 15th visit and enjoy a free ice cream cake. Ask in-store about reward eligibility and redemption.",
   },
   {
     id: 3,
-    icon: "",
-    title: "Share The Happiness",
-    subtitle: "Treat your people",
+    icon: "BR",
+    badge: "EVERY VISIT",
+    title: "Sweet Rewards",
+    subtitle: "Make every visit sweeter",
     description:
-      "Pick your favourite scoops, sundaes and desserts and turn an ordinary day into a sweet one.",
+      "Keep coming back for more sweet moments, special treats and rewards made for our regular customers.",
   },
 ];
 
@@ -406,16 +409,16 @@ function App() {
             <button
               type="button"
               onClick={() => scrollTo("home")}
-              className="flex items-center gap-3"
+              className="nav-brand group flex min-w-0 items-center gap-2.5 sm:gap-3"
             >
-              <div className="flex h-11 w-11 items-center justify-center rounded-xl bg-[#FF007F] text-lg font-black text-white shadow-lg">
+              <div className="nav-brand-mark flex h-10 w-10 shrink-0 items-center justify-center rounded-xl bg-gradient-to-br from-[#ff4da6] via-[#ff007f] to-[#d9006c] text-sm font-black text-white shadow-[0_8px_24px_rgba(255,0,127,.28)] sm:h-11 sm:w-11 sm:text-lg">
                 BR
               </div>
-              <div className="hidden text-left sm:block">
-                <div className="text-[17px] font-extrabold leading-none">
+              <div className="nav-brand-copy min-w-0 text-left">
+                <div className="truncate text-[13px] font-black leading-none sm:text-[17px]">
                   Baskin Robbins
                 </div>
-                <div className="mt-1 text-sm font-bold text-[#FF007F]">
+                <div className="mt-1 text-[11px] font-extrabold leading-none text-[#FF007F] sm:text-sm">
                   by Shanzzy
                 </div>
               </div>
@@ -457,10 +460,19 @@ function App() {
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen((open) => !open)}
-                className="rounded-xl p-2 text-2xl lg:hidden"
+                className="mobile-menu-button flex h-11 w-11 items-center justify-center rounded-xl border border-pink-100 bg-pink-50/80 text-[#FF007F] shadow-sm transition hover:bg-pink-100 lg:hidden"
                 aria-label="Toggle menu"
+                aria-expanded={mobileMenuOpen}
               >
-                {mobileMenuOpen ? "×" : "☰"}
+                {mobileMenuOpen ? (
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                    <path d="M6 6l12 12M18 6L6 18" />
+                  </svg>
+                ) : (
+                  <svg width="21" height="21" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" aria-hidden="true">
+                    <path d="M4 7h16M4 12h16M4 17h16" />
+                  </svg>
+                )}
               </button>
             </div>
           </div>
@@ -501,6 +513,17 @@ function App() {
                 draggable="false"
               />
 
+              <div className="hero-ambient" aria-hidden="true">
+                <span className="hero-ambient-orb hero-ambient-orb-one" />
+                <span className="hero-ambient-orb hero-ambient-orb-two" />
+                <span className="hero-ambient-ring hero-ambient-ring-one" />
+                <span className="hero-ambient-ring hero-ambient-ring-two" />
+                <span className="hero-sparkle hero-sparkle-one" />
+                <span className="hero-sparkle hero-sparkle-two" />
+                <span className="hero-sparkle hero-sparkle-three" />
+                <span className="hero-sparkle hero-sparkle-four" />
+              </div>
+
               {/* Navigation hotspots sit above the decorative background. */}
               <div className="absolute inset-0 z-20">
                 <button type="button" aria-label="Home" onClick={() => scrollTo("home")} className="home-hotspot home-hotspot-home" />
@@ -509,7 +532,7 @@ function App() {
                 <button type="button" aria-label="About" onClick={() => scrollTo("offers")} className="home-hotspot home-hotspot-about" />
                 <button type="button" aria-label="Contact" onClick={() => scrollTo("contact")} className="home-hotspot home-hotspot-contact" />
                 <button type="button" aria-label="View location" onClick={() => scrollTo("contact")} className="home-hotspot home-hotspot-location" />
-                <button type="button" aria-label="Open cart" onClick={() => setCartOpen(true)} className="home-hotspot home-hotspot-cart" />
+                <button type="button" aria-label="Open cart" onClick={() => scrollTo("order")} className="home-hotspot home-hotspot-cart" />
 
                 <div className="hero-copy">
                   <p className="hero-eyebrow">SCOOPS OF HAPPINESS</p>
@@ -994,26 +1017,27 @@ function App() {
               {OFFERS.map((offer) => (
                 <article
                   key={offer.id}
-                  className="group relative overflow-hidden rounded-[2rem] bg-white p-8 shadow-lg transition duration-500 hover:-translate-y-3 hover:shadow-2xl"
+                  className="offer-card group relative overflow-hidden rounded-[2rem] bg-white p-7 shadow-lg transition duration-500 hover:-translate-y-3 hover:shadow-2xl sm:p-8"
                 >
-                  <div className="absolute -right-10 -top-10 h-32 w-32 rounded-full bg-pink-100 transition duration-500 group-hover:scale-150" />
+                  <div className="offer-card-glow" />
                   <div className="relative">
-                    <div className="text-5xl">{offer.icon}</div>
-                    <p className="mt-7 text-sm font-bold uppercase tracking-wider text-[#FF007F]">
+                    <div className="flex items-start justify-between gap-4">
+                      <div className="offer-number">{offer.icon}</div>
+                      <span className="rounded-full border border-pink-100 bg-pink-50 px-3 py-1.5 text-[10px] font-black tracking-[0.16em] text-[#FF007F]">
+                        {offer.badge}
+                      </span>
+                    </div>
+                    <p className="mt-7 text-sm font-black uppercase tracking-[0.16em] text-[#FF007F]">
                       {offer.subtitle}
                     </p>
-                    <h3 className="mt-2 text-2xl font-black">
-                      {offer.title}
-                    </h3>
-                    <p className="mt-4 leading-7 text-gray-500">
-                      {offer.description}
-                    </p>
+                    <h3 className="mt-2 text-2xl font-black">{offer.title}</h3>
+                    <p className="mt-4 leading-7 text-gray-500">{offer.description}</p>
                     <button
                       type="button"
                       onClick={() => scrollTo("products")}
-                      className="mt-7 font-bold text-[#FF007F]"
+                      className="mt-7 inline-flex items-center gap-2 font-bold text-[#FF007F] transition group-hover:gap-3"
                     >
-                      Explore Treats →
+                      Explore Treats <span aria-hidden="true">→</span>
                     </button>
                   </div>
                 </article>
@@ -1101,8 +1125,11 @@ function App() {
                   </div>
 
                   <div className="flex gap-4">
-                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-pink-50 text-xl">
-                      ✉️
+                    <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-2xl bg-pink-50 text-[#FF007F]">
+                      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                        <rect x="3" y="5" width="18" height="14" rx="2" />
+                        <path d="m3 7 9 6 9-6" />
+                      </svg>
                     </div>
                     <div>
                       <h3 className="font-bold">Email</h3>
@@ -1291,6 +1318,28 @@ function App() {
           scroll-behavior: smooth;
         }
 
+        .nav-brand {
+          max-width: 235px;
+        }
+
+        .nav-brand-copy {
+          min-width: 0;
+        }
+
+        .nav-brand-mark {
+          position: relative;
+          overflow: hidden;
+        }
+
+        .nav-brand-mark::after {
+          content: "";
+          position: absolute;
+          inset: -60%;
+          background: linear-gradient(115deg, transparent 42%, rgba(255,255,255,.55) 50%, transparent 58%);
+          transform: translateX(-55%);
+          animation: logoShine 4.5s ease-in-out infinite;
+        }
+
         .glass-nav {
           position: relative;
           isolation: isolate;
@@ -1335,6 +1384,64 @@ function App() {
           line-height: 1.2;
           pointer-events: none;
         }
+
+        .hero-ambient {
+          position: absolute;
+          inset: 0;
+          z-index: 1;
+          pointer-events: none;
+          overflow: hidden;
+          mix-blend-mode: normal;
+        }
+
+        .hero-ambient::before {
+          content: "";
+          position: absolute;
+          inset: 0;
+          background: linear-gradient(115deg, transparent 18%, rgba(255,255,255,.22) 48%, transparent 72%);
+          transform: translateX(-100%);
+          animation: heroSheen 10s ease-in-out infinite;
+        }
+
+        .hero-ambient-orb {
+          position: absolute;
+          border-radius: 999px;
+          filter: blur(2px);
+          opacity: .5;
+        }
+
+        .hero-ambient-orb-one {
+          width: 220px; height: 220px; left: -70px; top: 18%;
+          background: radial-gradient(circle, rgba(255,0,127,.18), transparent 68%);
+          animation: ambientFloat 8s ease-in-out infinite;
+        }
+
+        .hero-ambient-orb-two {
+          width: 280px; height: 280px; right: -100px; bottom: 8%;
+          background: radial-gradient(circle, rgba(255,255,255,.55), rgba(255,0,127,.12) 48%, transparent 72%);
+          animation: ambientFloat 10s ease-in-out infinite reverse;
+        }
+
+        .hero-ambient-ring {
+          position: absolute;
+          border: 1px solid rgba(255,0,127,.16);
+          border-radius: 999px;
+        }
+
+        .hero-ambient-ring-one { width: 190px; height: 190px; left: 7%; top: 16%; animation: ringDrift 9s ease-in-out infinite; }
+        .hero-ambient-ring-two { width: 130px; height: 130px; right: 8%; top: 25%; animation: ringDrift 7s ease-in-out infinite reverse; }
+
+        .hero-sparkle {
+          position: absolute;
+          width: 7px; height: 7px; border-radius: 50%;
+          background: #fff;
+          box-shadow: 0 0 0 5px rgba(255,255,255,.25), 0 0 18px rgba(255,0,127,.45);
+          animation: sparklePulse 3.2s ease-in-out infinite;
+        }
+        .hero-sparkle-one { left: 23%; top: 21%; }
+        .hero-sparkle-two { right: 24%; top: 18%; width: 5px; height: 5px; animation-delay: -.8s; }
+        .hero-sparkle-three { left: 19%; bottom: 22%; width: 5px; height: 5px; animation-delay: -1.6s; }
+        .hero-sparkle-four { right: 18%; bottom: 20%; animation-delay: -2.2s; }
 
         .hero-copy::before {
           content: "";
@@ -1760,6 +1867,92 @@ function App() {
           .hero-grid { background-size: 42px 42px; }
         }
 
+        @media (max-width: 640px) {
+          .glass-nav {
+            border-radius: 18px;
+            box-shadow: 0 14px 35px rgba(93,64,55,.12);
+          }
+
+          .glass-nav > div:first-child {
+            height: 68px;
+            padding-left: 10px;
+            padding-right: 10px;
+          }
+
+          .nav-brand {
+            max-width: 205px;
+          }
+
+          .nav-brand-copy {
+            display: block;
+          }
+
+          .nav-brand-copy > div:first-child {
+            font-size: 13px;
+          }
+
+          .nav-brand-copy > div:last-child {
+            font-size: 10px;
+          }
+
+          .mobile-menu-button {
+            box-shadow: 0 6px 18px rgba(255,0,127,.12);
+          }
+
+          .home-reference-frame {
+            min-height: 680px;
+          }
+
+          .home-reference-frame > img {
+            min-height: 680px;
+            object-position: 50% center;
+          }
+
+          .hero-copy {
+            width: 84vw;
+            top: 52%;
+          }
+
+          .hero-copy::before {
+            inset: -55px -35px;
+            background: radial-gradient(ellipse at center, rgba(255,246,251,.84) 0%, rgba(255,241,248,.55) 45%, transparent 76%);
+          }
+
+          .hero-eyebrow {
+            font-size: 9px;
+            letter-spacing: .24em;
+          }
+
+          .hero-copy h1 {
+            font-size: clamp(36px, 11vw, 50px);
+            line-height: .92;
+          }
+
+          .hero-description {
+            max-width: 330px;
+            font-size: 12px;
+            line-height: 1.55;
+          }
+
+          .hero-meta {
+            flex-wrap: wrap;
+            max-width: 320px;
+            margin-left: auto;
+            margin-right: auto;
+            font-size: 8px;
+          }
+
+          .hero-ambient-ring-one { width: 120px; height: 120px; left: -35px; top: 22%; }
+          .hero-ambient-ring-two { width: 90px; height: 90px; right: -20px; top: 27%; }
+          .hero-ambient-orb-one { width: 150px; height: 150px; }
+          .hero-ambient-orb-two { width: 190px; height: 190px; }
+
+          .offer-number {
+            width: 58px;
+            height: 58px;
+          }
+        }
+
         @media (prefers-reduced-motion: reduce) {
           .hero-decoration, .hero-spark { animation: none !important; }
         }
@@ -1843,6 +2036,50 @@ function App() {
           filter: saturate(1.06) contrast(1.02);
         }
 
+        .offer-card {
+          isolation: isolate;
+          transform: translateZ(0);
+        }
+
+        .offer-card::after {
+          content: "";
+          position: absolute;
+          inset: 0;
+          border-radius: inherit;
+          border: 1px solid rgba(255,0,127,.08);
+          pointer-events: none;
+        }
+
+        .offer-card-glow {
+          position: absolute;
+          width: 190px;
+          height: 190px;
+          right: -95px;
+          top: -95px;
+          border-radius: 50%;
+          background: radial-gradient(circle, rgba(255,0,127,.22), transparent 68%);
+          transition: transform .6s ease;
+        }
+
+        .offer-card:hover .offer-card-glow {
+          transform: scale(1.45);
+        }
+
+        .offer-number {
+          display: grid;
+          place-items: center;
+          width: 64px;
+          height: 64px;
+          border-radius: 20px;
+          background: linear-gradient(135deg, #ff4da6, #ff007f 55%, #d9006c);
+          color: white;
+          font-size: 20px;
+          font-weight: 900;
+          letter-spacing: -.04em;
+          box-shadow: 0 14px 28px rgba(255,0,127,.22);
+          animation: rewardPulse 3.5s ease-in-out infinite;
+        }
+
         .product-card {
           transform: translateY(28px);
           opacity: 0;
@@ -1887,6 +2124,37 @@ function App() {
         @keyframes heroIn {
           from { opacity: 0; transform: translateY(28px) scale(.985); }
           to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+        @keyframes logoShine {
+          0%, 60%, 100% { transform: translateX(-55%); }
+          72% { transform: translateX(55%); }
+        }
+
+        @keyframes heroSheen {
+          0%, 55%, 100% { transform: translateX(-100%); opacity: 0; }
+          65% { opacity: 1; }
+          82% { transform: translateX(100%); opacity: 0; }
+        }
+
+        @keyframes ambientFloat {
+          0%, 100% { transform: translate3d(0,0,0) scale(1); }
+          50% { transform: translate3d(16px,-20px,0) scale(1.08); }
+        }
+
+        @keyframes ringDrift {
+          0%, 100% { transform: translate3d(0,0,0) rotate(0deg); }
+          50% { transform: translate3d(12px,-15px,0) rotate(12deg); }
+        }
+
+        @keyframes sparklePulse {
+          0%, 100% { transform: scale(.65); opacity: .35; }
+          50% { transform: scale(1.45); opacity: 1; }
+        }
+
+        @keyframes rewardPulse {
+          0%, 100% { transform: translateY(0) rotate(0deg); }
+          50% { transform: translateY(-4px) rotate(2deg); }
         }
 
         @keyframes navShimmer {
