@@ -1211,6 +1211,113 @@ function App() {
             </div>
           </div>
         </section>
+
+        {/* Google Maps Store Gallery — added without changing the existing sections */}
+        <section
+          id="store-gallery"
+          className="reveal-on-scroll scroll-mt-24 bg-[#fff7fb] px-5 py-20 sm:px-8 lg:px-12"
+        >
+          <div className="mx-auto max-w-7xl">
+            <div className="mb-10 text-center">
+              <p className="text-sm font-bold uppercase tracking-[0.3em] text-[#FF007F]">
+                Visit Our Store
+              </p>
+              <h2 className="mt-3 text-4xl font-black sm:text-5xl">
+                A Glimpse Inside
+              </h2>
+              <div className="mx-auto mt-5 h-1 w-20 rounded-full bg-[#FF007F]" />
+              <p className="mx-auto mt-6 max-w-2xl text-gray-600">
+                Take a look at our Baskin Robbins store through photos uploaded
+                to our Google Maps listing.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+              {[
+                {
+                  src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Re_xvvVBtFtTuJD8mVLBy6qdpJQNYIanFb0xp20igd021HD830Du6H1KAS0_fQ987C-fxCmUiQPufbB4TUTbVyZAqdG1aHJnRAcmlITs4T8gvTmnIRrVBn3Srpm-6zXaDwwDhhTq7vRZz1=w114-h86-k-no",
+                  alt: "Baskin Robbins store photo 1",
+                },
+                {
+                  src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9STg24iG4Cn7YKNc38RLdzfdm7kNDggIiQ5TWtkS2iTqg3ICzKl4KQq-hHdvL1MGld30nSfqnV9-PGUK4-C7PicOCTZFG7j21vpVy390-Ey0nozxzWfzZ4uKMDZXVExrB1rha8TlNUsnq3D=w203-h270-k-no",
+                  alt: "Baskin Robbins store photo 2",
+                },
+                {
+                  src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qc_5CVWJbFafhtjrmoSSL-F4BI2WJJTr1Xs_C2DvLK8JGViUcO4QT7jSiJBmRhnh1c_Rvr4Ro0Pzr7rRqWVrYYb85A3R6-_8HIjvQI0GFeuhyAG0ONcUrY6xTSu_LMe1Gjrl-f4yM8fQR1=w203-h270-k-no",
+                  alt: "Baskin Robbins store photo 3",
+                },
+                {
+                  src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Rr45kA2fTROZLQLezAKFmyFpdLN32sKLJsinm06sZ0Q4wE1j6LQFxcGMP_Zp5UX_CkFhofZhjXXhqRr2nPg6NP34q8QW0q9iSykWVOi_CSu_S6PpUe_1tBFxFxfNZDqYpG9oB1PsQz86k=w203-h270-k-no",
+                  alt: "Baskin Robbins store photo 4",
+                },
+                {
+                  src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TwywxLpOEyXys3AotJpbphSQxsNA_ussB2DuIrNfSPPfxObFWy2Nf2SPeApxIFVN2Stp9bfyWFdDiGmg1bvYczSrBP7vfqjk7h5Bu2nu3tT0CAAA_tbWTC3MTxyPAOKcVzngQSJCtxnwo=w203-h113-k-no",
+                  alt: "Baskin Robbins store photo 5",
+                },
+                {
+                  src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Tt8IPwiZfKzXAG00OZDDpbXRH8-bP2JHHNw-D058GN2gVyk8-Wxwr9HZfkPzliYnxTHoMvmUQMR5HYNzjWLJpycPHfl-OF6TUzWEGkpqVE26z9pd8pgxPcj6CG-yK0S-bTJVSkWMnoQDT4=w203-h270-k-no",
+                  alt: "Baskin Robbins store photo 6",
+                },
+              ].map((photo, index) => (
+                <a
+                  key={photo.src}
+                  href={photo.src}
+                  target="_blank"
+                  rel="noreferrer"
+                  className={`group relative overflow-hidden rounded-[2rem] bg-white shadow-xl ${index === 0 ? "sm:col-span-2 lg:col-span-2" : ""
+                    }`}
+                  aria-label={`Open Baskin Robbins store photo ${index + 1}`}
+                >
+                  <div
+                    className={`relative overflow-hidden ${index === 0
+                        ? "aspect-[16/9]"
+                        : "aspect-[4/5] sm:aspect-[4/5]"
+                      }`}
+                  >
+                    <img
+                      src={photo.src}
+                      alt={photo.alt}
+                      className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
+                      loading={index === 0 ? "eager" : "lazy"}
+                      referrerPolicy="no-referrer"
+                    />
+
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-transparent opacity-70 transition duration-300 group-hover:opacity-90" />
+
+                    <div className="absolute bottom-0 left-0 right-0 flex items-end justify-between gap-3 p-5 text-white">
+                      <div>
+                        <p className="text-xs font-bold uppercase tracking-[0.18em] text-pink-200">
+                          Baskin Robbins by Shanzzy
+                        </p>
+                        <p className="mt-1 text-sm font-semibold">
+                          Store photo {index + 1}
+                        </p>
+                      </div>
+                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/90 text-lg text-[#FF007F] shadow-lg transition group-hover:scale-110">
+                        ↗
+                      </span>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+
+            <div className="mt-8 text-center">
+              <a
+                href="https://www.google.com/maps/place/Baskin+Robbins/@23.0180063,76.667942,17z"
+                target="_blank"
+                rel="noreferrer"
+                className="inline-flex items-center justify-center rounded-full bg-[#5D4037] px-7 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#FF007F]"
+              >
+                View More Photos & Reviews on Google Maps →
+              </a>
+              <p className="mt-4 text-xs text-gray-400">
+                Photos are displayed from the Google Maps image URLs you provided.
+              </p>
+            </div>
+          </div>
+        </section>
+
       </main>
 
       <footer className="site-footer relative overflow-hidden px-5 pb-8 pt-16 text-white sm:px-8">
