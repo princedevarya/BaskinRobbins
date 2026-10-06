@@ -1232,7 +1232,7 @@ function App() {
               </p>
             </div>
 
-            <div className="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-3">
+            <div className="flex w-full gap-5 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:thin]">
               {[
                 {
                   src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Re_xvvVBtFtTuJD8mVLBy6qdpJQNYIanFb0xp20igd021HD830Du6H1KAS0_fQ987C-fxCmUiQPufbB4TUTbVyZAqdG1aHJnRAcmlITs4T8gvTmnIRrVBn3Srpm-6zXaDwwDhhTq7vRZz1=w114-h86-k-no",
@@ -1264,15 +1264,11 @@ function App() {
                   href={photo.src}
                   target="_blank"
                   rel="noreferrer"
-                  className={`group relative overflow-hidden rounded-[2rem] bg-white shadow-xl ${index === 0 ? "sm:col-span-2 lg:col-span-2" : ""
-                    }`}
+                  className="group relative w-[78vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-[2rem] bg-white shadow-xl sm:w-[300px] lg:w-[330px]"
                   aria-label={`Open Baskin Robbins store photo ${index + 1}`}
                 >
                   <div
-                    className={`relative overflow-hidden ${index === 0
-                        ? "aspect-[16/9]"
-                        : "aspect-[4/5] sm:aspect-[4/5]"
-                      }`}
+                    className="relative aspect-[4/5] overflow-hidden"
                   >
                     <img
                       src={photo.src}
