@@ -294,7 +294,7 @@ function App() {
   useEffect(() => {
     const timer = window.setInterval(() => {
       setShowcaseIndex((current) => (current + 1) % SHOWCASE_PRODUCTS.length);
-    }, 5200);
+    }, 8000);
     return () => window.clearInterval(timer);
   }, []);
 
