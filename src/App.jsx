@@ -540,7 +540,7 @@ function App() {
                 <div className="hero-showcase-top-spacer" aria-hidden="true" />
 
                 <div className="hero-showcase-stats" aria-label="Store highlights">
-                  <div><strong>31</strong><span>Rewards</span></div>
+                  <div><strong>31%</strong><span>Discounts</span></div>
                   <div><strong>19+</strong><span>Treats</span></div>
                   <div><strong>4</strong><span>Flavours</span></div>
                 </div>
