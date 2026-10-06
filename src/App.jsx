@@ -470,6 +470,20 @@ function App() {
                 )}
               </button>
 
+              {/* Mobile Order Now button */}
+              <button
+                type="button"
+                onClick={() => scrollTo("order")}
+                className="flex items-center gap-1.5 rounded-full bg-[#FF007F] px-4 py-2.5 text-sm font-bold text-white shadow-lg sm:hidden"
+              >
+                Order
+                {cartCount > 0 && (
+                  <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-white px-1 text-xs text-[#FF007F]">
+                    {cartCount}
+                  </span>
+                )}
+              </button>
+
               <button
                 type="button"
                 onClick={() => setMobileMenuOpen((open) => !open)}
@@ -526,7 +540,7 @@ function App() {
                 <div className="hero-showcase-top-spacer" aria-hidden="true" />
 
                 <div className="hero-showcase-stats" aria-label="Store highlights">
-                  <div><strong>31%</strong><span>Discount</span></div>
+                  <div><strong>31</strong><span>Rewards</span></div>
                   <div><strong>19+</strong><span>Treats</span></div>
                   <div><strong>4</strong><span>Flavours</span></div>
                 </div>
