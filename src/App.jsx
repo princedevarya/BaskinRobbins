@@ -1236,27 +1236,27 @@ function App() {
               {[
                 {
                   src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Re_xvvVBtFtTuJD8mVLBy6qdpJQNYIanFb0xp20igd021HD830Du6H1KAS0_fQ987C-fxCmUiQPufbB4TUTbVyZAqdG1aHJnRAcmlITs4T8gvTmnIRrVBn3Srpm-6zXaDwwDhhTq7vRZz1=w114-h86-k-no",
-
+                  alt: "Baskin Robbins store photo 1",
                 },
                 {
                   src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9STg24iG4Cn7YKNc38RLdzfdm7kNDggIiQ5TWtkS2iTqg3ICzKl4KQq-hHdvL1MGld30nSfqnV9-PGUK4-C7PicOCTZFG7j21vpVy390-Ey0nozxzWfzZ4uKMDZXVExrB1rha8TlNUsnq3D=w203-h270-k-no",
-
+                  alt: "Baskin Robbins store photo 2",
                 },
                 {
                   src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Qc_5CVWJbFafhtjrmoSSL-F4BI2WJJTr1Xs_C2DvLK8JGViUcO4QT7jSiJBmRhnh1c_Rvr4Ro0Pzr7rRqWVrYYb85A3R6-_8HIjvQI0GFeuhyAG0ONcUrY6xTSu_LMe1Gjrl-f4yM8fQR1=w203-h270-k-no",
-
+                  alt: "Baskin Robbins store photo 3",
                 },
                 {
                   src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Rr45kA2fTROZLQLezAKFmyFpdLN32sKLJsinm06sZ0Q4wE1j6LQFxcGMP_Zp5UX_CkFhofZhjXXhqRr2nPg6NP34q8QW0q9iSykWVOi_CSu_S6PpUe_1tBFxFxfNZDqYpG9oB1PsQz86k=w203-h270-k-no",
-
+                  alt: "Baskin Robbins store photo 4",
                 },
                 {
                   src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9TwywxLpOEyXys3AotJpbphSQxsNA_ussB2DuIrNfSPPfxObFWy2Nf2SPeApxIFVN2Stp9bfyWFdDiGmg1bvYczSrBP7vfqjk7h5Bu2nu3tT0CAAA_tbWTC3MTxyPAOKcVzngQSJCtxnwo=w203-h113-k-no",
-
+                  alt: "Baskin Robbins store photo 5",
                 },
                 {
                   src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Tt8IPwiZfKzXAG00OZDDpbXRH8-bP2JHHNw-D058GN2gVyk8-Wxwr9HZfkPzliYnxTHoMvmUQMR5HYNzjWLJpycPHfl-OF6TUzWEGkpqVE26z9pd8pgxPcj6CG-yK0S-bTJVSkWMnoQDT4=w203-h270-k-no",
-
+                  alt: "Baskin Robbins store photo 6",
                 },
               ].map((photo, index) => (
                 <a
@@ -1286,7 +1286,7 @@ function App() {
                           Baskin Robbins by Shanzzy
                         </p>
                         <p className="mt-1 text-sm font-semibold">
-                          Store photo {index + 1}
+
                         </p>
                       </div>
                       <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/90 text-lg text-[#FF007F] shadow-lg transition group-hover:scale-110">
