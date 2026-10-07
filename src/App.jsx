@@ -1300,7 +1300,7 @@ function App() {
 
             <div className="mt-8 text-center">
               <a
-                href="https://www.google.com/maps/place/Baskin+Robbins/@23.0180063,76.667942,17z"
+                href="https://www.google.com/maps/place/Baskin+Robbins/@23.0180063,76.6653671,17z/data=!3m1!4b1!4m6!3m5!1s0x397cc5878ea28929:0xc41dbe47c46d9e7c!8m2!3d23.0180063!4d76.667942!16s%2Fg%2F11njv949_q?entry=ttu&g_ep=EgoyMDI2MTAwNC4wIKXMDSoASAFQAw%3D%3D"
                 target="_blank"
                 rel="noreferrer"
                 className="inline-flex items-center justify-center rounded-full bg-[#5D4037] px-7 py-3.5 text-sm font-bold text-white shadow-lg transition hover:-translate-y-0.5 hover:bg-[#FF007F]"
