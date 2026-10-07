@@ -1259,13 +1259,9 @@ function App() {
                   alt: "Baskin Robbins store photo 6",
                 },
               ].map((photo, index) => (
-                <a
+                <div
                   key={photo.src}
-                  href={photo.src}
-                  target="_blank"
-                  rel="noreferrer"
                   className="group relative w-[78vw] max-w-[360px] shrink-0 snap-start overflow-hidden rounded-[2rem] bg-white shadow-xl sm:w-[300px] lg:w-[330px]"
-                  aria-label={`Open Baskin Robbins store photo ${index + 1}`}
                 >
                   <div
                     className="relative aspect-[4/5] overflow-hidden"
@@ -1289,12 +1285,10 @@ function App() {
 
                         </p>
                       </div>
-                      <span className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-white/90 text-lg text-[#FF007F] shadow-lg transition group-hover:scale-110">
-                        ↗
-                      </span>
+
                     </div>
                   </div>
-                </a>
+                </div>
               ))}
             </div>
 
