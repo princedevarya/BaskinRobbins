@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from "react";
+import emailjs from "@emailjs/browser";
 
 /*
   Baskin Robbins by Shanzzy
@@ -396,9 +397,43 @@ function App() {
         throw new Error(result.message || "Order could not be sent.");
       }
 
+      // Send the customer a separate confirmation email through EmailJS.
+      // The order is already safely submitted to Web3Forms, so an email
+      // delivery issue must not erase or misreport the customer's order.
+      let emailSent = false;
+      const emailServiceId = import.meta.env.VITE_EMAILJS_SERVICE_ID;
+      const emailTemplateId = import.meta.env.VITE_EMAILJS_TEMPLATE_ID;
+      const emailPublicKey = import.meta.env.VITE_EMAILJS_PUBLIC_KEY;
+
+      if (customer.email && emailServiceId && emailTemplateId && emailPublicKey) {
+        try {
+          await emailjs.send(
+            emailServiceId,
+            emailTemplateId,
+            {
+              to_email: customer.email,
+              customer_name: customer.name,
+              customer_phone: customer.phone,
+              delivery_address: customer.address,
+              order_details: items,
+              total_amount: `₹${cartTotal}`,
+              notes: customer.notes || "None",
+              item_count: String(cart.length),
+              store_name: "Baskin Robbins by Shanzzy",
+            },
+            { publicKey: emailPublicKey }
+          );
+          emailSent = true;
+        } catch (emailError) {
+          console.error("Order was submitted, but the confirmation email could not be sent:", emailError);
+        }
+      }
+
       setOrderConfirmation({
         itemCount: cart.length,
         total: cartTotal,
+        emailSent,
+        customerEmail: customer.email || "",
       });
       setOrderStatus("");
       setCart([]);
@@ -1006,8 +1041,6 @@ function App() {
                       ₹{cartTotal}
                     </span>
                   </div>
-                  <p className="mt-2 text-sm text-gray-600">
-                  </p>
                 </div>
 
                 <button
@@ -1053,6 +1086,19 @@ function App() {
               <p className="mt-3 leading-6 text-gray-600">
                 Our store will contact you soon to confirm your order.
               </p>
+              {orderConfirmation.emailSent ? (
+                <p className="mt-3 rounded-xl bg-green-50 px-4 py-3 text-sm text-green-800">
+                  Confirmation email sent to <strong>{orderConfirmation.customerEmail}</strong>.
+                </p>
+              ) : orderConfirmation.customerEmail ? (
+                <p className="mt-3 rounded-xl bg-amber-50 px-4 py-3 text-sm text-amber-800">
+                  Your order was received, but we couldn't send the confirmation email. Please check your email address or contact the store.
+                </p>
+              ) : (
+                <p className="mt-3 text-sm text-gray-500">
+                  Add your email at checkout next time to receive an email confirmation.
+                </p>
+              )}
               <div className="mt-6 rounded-2xl bg-pink-50 p-5 text-left">
                 <div className="flex items-center justify-between gap-4">
                   <span className="text-sm font-semibold text-gray-600">Total items</span>
