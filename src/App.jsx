@@ -202,13 +202,13 @@ const PRODUCTS = [
     image:
       "https://baskinrobbinsindia.com/cdn/shop/files/Variety-Pack_4c80af1b-2b50-44ae-8564-2b39d1fcf8c3_414x.png?v=1698414156",
     description: "A variety pack for sharing or gifting.",
-  }, ,
+  },
   {
     id: 20,
     name: "Waffle Cone — Vanilla",
     category: "Dessert",
     price: 12,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Vanilla waffle cone add-on.",
   },
   {
@@ -216,7 +216,7 @@ const PRODUCTS = [
     name: "Waffle Cone — Chocolate",
     category: "Dessert",
     price: 18,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Chocolate waffle cone add-on.",
   },
   {
@@ -224,7 +224,7 @@ const PRODUCTS = [
     name: "Milkshake — Your Favourite Scoop",
     category: "Beverages",
     price: 199,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Milkshake made with your favourite scoop; starting price.",
   },
   {
@@ -232,7 +232,7 @@ const PRODUCTS = [
     name: "Fairytale Sundae — Vanilla (Small Scoop)",
     category: "Sundae",
     price: 155,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Kids special fairytale sundae.",
   },
   {
@@ -240,7 +240,7 @@ const PRODUCTS = [
     name: "Fairytale Sundae — Vanilla (Regular Scoop)",
     category: "Sundae",
     price: 195,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Kids special fairytale sundae.",
   },
   {
@@ -248,7 +248,7 @@ const PRODUCTS = [
     name: "Fairytale Sundae — Shooting Star (Small Scoop)",
     category: "Sundae",
     price: 155,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Kids special fairytale sundae.",
   },
   {
@@ -256,7 +256,7 @@ const PRODUCTS = [
     name: "Fairytale Sundae — Shooting Star (Regular Scoop)",
     category: "Sundae",
     price: 195,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Kids special fairytale sundae.",
   },
   {
@@ -264,7 +264,7 @@ const PRODUCTS = [
     name: "Fairytale Sundae — Splish Splash (Small Scoop)",
     category: "Sundae",
     price: 155,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Kids special fairytale sundae.",
   },
   {
@@ -272,7 +272,7 @@ const PRODUCTS = [
     name: "Fairytale Sundae — Splish Splash (Regular Scoop)",
     category: "Sundae",
     price: 195,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Kids special fairytale sundae.",
   },
   {
@@ -280,7 +280,7 @@ const PRODUCTS = [
     name: "Fairytale Sundae — Cotton Candy (Small Scoop)",
     category: "Sundae",
     price: 155,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Kids special fairytale sundae.",
   },
   {
@@ -288,7 +288,7 @@ const PRODUCTS = [
     name: "Fairytale Sundae — Cotton Candy (Regular Scoop)",
     category: "Sundae",
     price: 195,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Kids special fairytale sundae.",
   },
   {
@@ -296,7 +296,7 @@ const PRODUCTS = [
     name: "Dubai Chocolate Gelato Sundae",
     category: "Sundae",
     price: 210,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Italian gelato sundae with Dubai chocolate flavours.",
   },
   {
@@ -304,7 +304,7 @@ const PRODUCTS = [
     name: "Mango & Cream Gelato Sundae",
     category: "Sundae",
     price: 205,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Italian gelato sundae with mango and cream.",
   },
   {
@@ -312,7 +312,7 @@ const PRODUCTS = [
     name: "Chocolate & Roasted Hazelnut Gelato Sundae",
     category: "Sundae",
     price: 205,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Italian gelato sundae with roasted hazelnut.",
   },
   {
@@ -320,7 +320,7 @@ const PRODUCTS = [
     name: "Cotton Candy Wonderland Gelato Sundae",
     category: "Sundae",
     price: 205,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Italian gelato sundae with cotton candy flavours.",
   },
   {
@@ -328,7 +328,7 @@ const PRODUCTS = [
     name: "Berry Me in Cheesecake Gelato Sundae",
     category: "Sundae",
     price: 205,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Italian gelato sundae with berry and cheesecake flavours.",
   },
   {
@@ -336,7 +336,7 @@ const PRODUCTS = [
     name: "Vanilla Affair Brownie Dessert",
     category: "Dessert",
     price: 195,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Brownie dessert with vanilla flavours.",
   },
   {
@@ -344,7 +344,7 @@ const PRODUCTS = [
     name: "Almond Delight Brownie Dessert",
     category: "Dessert",
     price: 210,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Brownie dessert with almond flavours.",
   },
   {
@@ -352,7 +352,7 @@ const PRODUCTS = [
     name: "Nutella Slab Brownie Dessert",
     category: "Dessert",
     price: 210,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Brownie dessert with Nutella.",
   },
   {
@@ -360,7 +360,7 @@ const PRODUCTS = [
     name: "Belgian Dream Brownie Dessert",
     category: "Dessert",
     price: 230,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Rich Belgian chocolate brownie dessert.",
   },
   {
@@ -368,7 +368,7 @@ const PRODUCTS = [
     name: "Bavarian Blast Brownie Dessert",
     category: "Dessert",
     price: 230,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Bavarian-style brownie dessert.",
   },
   {
@@ -376,7 +376,7 @@ const PRODUCTS = [
     name: "Brownie A La Mode",
     category: "Dessert",
     price: 335,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Brownie served with ice cream.",
   },
   {
@@ -384,7 +384,7 @@ const PRODUCTS = [
     name: "Strawberry Ice Cream with Strawberry Sauce",
     category: "Dessert",
     price: 300,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Cheesecake dessert pairing; category price shown as ₹300.",
   },
   {
@@ -392,7 +392,7 @@ const PRODUCTS = [
     name: "Biscoff Ice Cream with Butterscotch Sauce",
     category: "Dessert",
     price: 300,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Cheesecake dessert pairing; category price shown as ₹300.",
   },
   {
@@ -400,7 +400,7 @@ const PRODUCTS = [
     name: "Vanilla Ice Cream with Mango Sauce",
     category: "Dessert",
     price: 300,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Cheesecake dessert pairing; category price shown as ₹300.",
   },
   {
@@ -408,7 +408,7 @@ const PRODUCTS = [
     name: "Vanilla Ice Cream with Nutella Spread",
     category: "Dessert",
     price: 300,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Cheesecake dessert pairing; category price shown as ₹300.",
   },
   {
@@ -416,7 +416,7 @@ const PRODUCTS = [
     name: "Gold Medal Ribbon Ice Cream with Nutella Spread",
     category: "Dessert",
     price: 300,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Cheesecake dessert pairing; category price shown as ₹300.",
   },
   {
@@ -424,7 +424,7 @@ const PRODUCTS = [
     name: "Croissant Cone Sundae — Mississippi Mud + Chocolate Syrup",
     category: "Sundae",
     price: 205,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Croissant cone sundae.",
   },
   {
@@ -432,7 +432,7 @@ const PRODUCTS = [
     name: "Croissant Cone Sundae — Biscoff Butterscotch Sauce",
     category: "Sundae",
     price: 205,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Croissant cone sundae.",
   },
   {
@@ -440,7 +440,7 @@ const PRODUCTS = [
     name: "Croissant Cone Sundae — Vanilla + Nutella Spread",
     category: "Sundae",
     price: 205,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Croissant cone sundae.",
   },
   {
@@ -448,7 +448,7 @@ const PRODUCTS = [
     name: "Gulab Jamun Sundae",
     category: "Sundae",
     price: 165,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Classic sundae.",
   },
   {
@@ -456,7 +456,7 @@ const PRODUCTS = [
     name: "Iranian Pista Kulfi Sundae",
     category: "Sundae",
     price: 200,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Classic sundae.",
   },
   {
@@ -464,7 +464,7 @@ const PRODUCTS = [
     name: "Golden Ferrero Sundae",
     category: "Sundae",
     price: 205,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Classic sundae.",
   },
   {
@@ -472,7 +472,7 @@ const PRODUCTS = [
     name: "Thunder Hot Fudge Sundae",
     category: "Sundae",
     price: 205,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Classic sundae.",
   },
   {
@@ -480,7 +480,7 @@ const PRODUCTS = [
     name: "Nutty Professor Sundae",
     category: "Sundae",
     price: 240,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Classic sundae.",
   },
   {
@@ -488,7 +488,7 @@ const PRODUCTS = [
     name: "Alphonso Mango Fruit Cream Sundae",
     category: "Sundae",
     price: 210,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Fruit cream sundae.",
   },
   {
@@ -496,7 +496,7 @@ const PRODUCTS = [
     name: "Banana 'N Strawberry Fruit Cream Sundae",
     category: "Sundae",
     price: 210,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Fruit cream sundae.",
   },
   {
@@ -504,7 +504,7 @@ const PRODUCTS = [
     name: "Vanilla Fruit Cream Sundae",
     category: "Sundae",
     price: 210,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Fruit cream sundae.",
   },
   {
@@ -512,7 +512,7 @@ const PRODUCTS = [
     name: "Grand Fruit Cream (Sharing Sundae)",
     category: "Sundae",
     price: 399,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Snickers-Caramel-Sundae_414x.png?v=1698414156",
+    image: "",
     description: "Sharing-size fruit cream sundae.",
   },
   {
@@ -520,7 +520,7 @@ const PRODUCTS = [
     name: "Hot Fudgy Cookie",
     category: "Dessert",
     price: 220,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Sizzling dessert; starting price.",
   },
   {
@@ -528,7 +528,7 @@ const PRODUCTS = [
     name: "Sizzling Brownie",
     category: "Dessert",
     price: 220,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Sizzling dessert; starting price.",
   },
   {
@@ -536,7 +536,7 @@ const PRODUCTS = [
     name: "Strawberry Matcha Gelato",
     category: "Gelato",
     price: 170,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Saffron_Gelato_414x.png?v=1764762258",
+    image: "",
     description: "Seasonal gelato flavour; verify current store price.",
   },
   {
@@ -544,7 +544,7 @@ const PRODUCTS = [
     name: "Hat-trick Ice Cream",
     category: "Ice Cream",
     price: 109,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Seasonal ice cream flavour; verify current store price.",
   },
   {
@@ -552,7 +552,7 @@ const PRODUCTS = [
     name: "Beach Day Ice Cream",
     category: "Ice Cream",
     price: 109,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Seasonal ice cream flavour; verify current store price.",
   },
   {
@@ -560,7 +560,7 @@ const PRODUCTS = [
     name: "Dubai Chocolate Gelato",
     category: "Gelato",
     price: 170,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Saffron_Gelato_414x.png?v=1764762258",
+    image: "",
     description: "Seasonal gelato flavour; verify current store price.",
   },
   {
@@ -568,7 +568,7 @@ const PRODUCTS = [
     name: "Celebration Cake — Chocolate Truffle (500 g)",
     category: "Ice Cream Cake",
     price: 699,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "500 g celebration cake; serves 6–8.",
   },
   {
@@ -576,7 +576,7 @@ const PRODUCTS = [
     name: "Celebration Cake — Black Forest (500 g)",
     category: "Ice Cream Cake",
     price: 699,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "500 g celebration cake; serves 6–8.",
   },
   {
@@ -584,7 +584,7 @@ const PRODUCTS = [
     name: "Celebration Cake — Pineapple (500 g)",
     category: "Ice Cream Cake",
     price: 699,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "500 g celebration cake; serves 6–8.",
   },
   {
@@ -592,7 +592,7 @@ const PRODUCTS = [
     name: "Celebration Cake — Cotton Candy (500 g)",
     category: "Ice Cream Cake",
     price: 699,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "500 g celebration cake; serves 6–8.",
   },
   {
@@ -600,7 +600,7 @@ const PRODUCTS = [
     name: "Celebration Cake — Alphonso Mango (500 g)",
     category: "Ice Cream Cake",
     price: 699,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "500 g celebration cake; serves 6–8.",
   },
   {
@@ -608,7 +608,7 @@ const PRODUCTS = [
     name: "Celebration Cake — Red Velvet Fantasy (500 g)",
     category: "Ice Cream Cake",
     price: 749,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "500 g celebration cake; serves 6–8.",
   },
   {
@@ -616,7 +616,7 @@ const PRODUCTS = [
     name: "Celebration Cake — Blueberry Cheesecake (500 g)",
     category: "Ice Cream Cake",
     price: 749,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "500 g celebration cake; serves 6–8.",
   },
   {
@@ -624,7 +624,7 @@ const PRODUCTS = [
     name: "Celebration Cake — Pistachio & Caramel (500 g)",
     category: "Ice Cream Cake",
     price: 749,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "500 g celebration cake; serves 6–8.",
   },
   {
@@ -632,7 +632,7 @@ const PRODUCTS = [
     name: "Celebration Cake — Biscoff (500 g)",
     category: "Ice Cream Cake",
     price: 849,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "500 g celebration cake; serves 6–8.",
   },
   {
@@ -640,7 +640,7 @@ const PRODUCTS = [
     name: "Roll Cake — Bavarian Knight (900 g)",
     category: "Ice Cream Cake",
     price: 929,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "Whole roll cake, 900 g.",
   },
   {
@@ -648,7 +648,7 @@ const PRODUCTS = [
     name: "Roll Cake Slice — Bavarian Knight (90 g)",
     category: "Dessert",
     price: 130,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Single roll cake slice, 90 g.",
   },
   {
@@ -656,7 +656,7 @@ const PRODUCTS = [
     name: "Roll Cake — Classic Fudge (900 g)",
     category: "Ice Cream Cake",
     price: 929,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "Whole roll cake, 900 g.",
   },
   {
@@ -664,7 +664,7 @@ const PRODUCTS = [
     name: "Roll Cake Slice — Classic Fudge (90 g)",
     category: "Dessert",
     price: 130,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Single roll cake slice, 90 g.",
   },
   {
@@ -672,7 +672,7 @@ const PRODUCTS = [
     name: "Roll Cake — Mississippi Mud (900 g)",
     category: "Ice Cream Cake",
     price: 929,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "Whole roll cake, 900 g.",
   },
   {
@@ -680,7 +680,7 @@ const PRODUCTS = [
     name: "Roll Cake Slice — Mississippi Mud (90 g)",
     category: "Dessert",
     price: 130,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Single roll cake slice, 90 g.",
   },
   {
@@ -688,7 +688,7 @@ const PRODUCTS = [
     name: "Roll Cake — Red Velvet (900 g)",
     category: "Ice Cream Cake",
     price: 929,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "Whole roll cake, 900 g.",
   },
   {
@@ -696,7 +696,7 @@ const PRODUCTS = [
     name: "Roll Cake Slice — Red Velvet (90 g)",
     category: "Dessert",
     price: 130,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Single roll cake slice, 90 g.",
   },
   {
@@ -704,7 +704,7 @@ const PRODUCTS = [
     name: "Roll Cake — Biscoff (900 g)",
     category: "Ice Cream Cake",
     price: 999,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "Whole roll cake, 900 g.",
   },
   {
@@ -712,7 +712,7 @@ const PRODUCTS = [
     name: "Roll Cake Slice — Biscoff (90 g)",
     category: "Dessert",
     price: 140,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Single roll cake slice, 90 g.",
   },
   {
@@ -720,7 +720,7 @@ const PRODUCTS = [
     name: "Roll Cake — Iranian Pista Kulfi (900 g)",
     category: "Ice Cream Cake",
     price: 999,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "Whole roll cake, 900 g.",
   },
   {
@@ -728,7 +728,7 @@ const PRODUCTS = [
     name: "Roll Cake Slice — Iranian Pista Kulfi (90 g)",
     category: "Dessert",
     price: 175,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Single roll cake slice, 90 g.",
   },
   {
@@ -736,7 +736,7 @@ const PRODUCTS = [
     name: "Dubai Chocolate Cake (350 g)",
     category: "Ice Cream Cake",
     price: 525,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Cakes_08fe6ba3-ff60-4e01-abda-db35cfca8171_414x.png?v=1698414156",
+    image: "",
     description: "Special cake, 350 g.",
   },
   {
@@ -744,7 +744,7 @@ const PRODUCTS = [
     name: "Choco Lava Cake with Vanilla / Chocolate Ice Cream",
     category: "Dessert",
     price: 195,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Choco lava cake served with vanilla or chocolate ice cream.",
   },
   {
@@ -752,7 +752,7 @@ const PRODUCTS = [
     name: "Walnut Brownie with Cookies 'N Cream Ice Cream",
     category: "Dessert",
     price: 275,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Walnut brownie served with Cookies 'N Cream ice cream.",
   },
   {
@@ -760,7 +760,7 @@ const PRODUCTS = [
     name: "Blueberry Muffin with Blueberry Cheesecake Gelato",
     category: "Dessert",
     price: 325,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Blueberry muffin served with blueberry cheesecake gelato.",
   },
   {
@@ -768,7 +768,7 @@ const PRODUCTS = [
     name: "Chocolate Muffin with Mississippi Mud Ice Cream",
     category: "Dessert",
     price: 340,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Chocolate muffin served with Mississippi Mud ice cream.",
   },
   {
@@ -776,7 +776,7 @@ const PRODUCTS = [
     name: "Tiramisu Cheesecake with Biscoff Ice Cream",
     category: "Dessert",
     price: 350,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Tiramisu cheesecake served with Biscoff ice cream.",
   },
   {
@@ -784,7 +784,7 @@ const PRODUCTS = [
     name: "Classic Cheesecake",
     category: "Dessert",
     price: 180,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Classic cheesecake.",
   },
   {
@@ -792,7 +792,7 @@ const PRODUCTS = [
     name: "Butter Croissant",
     category: "Dessert",
     price: 130,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Buttery croissant.",
   },
   {
@@ -800,7 +800,7 @@ const PRODUCTS = [
     name: "Caramel Mousse Cake",
     category: "Dessert",
     price: 200,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Caramel mousse cake.",
   },
   {
@@ -808,7 +808,7 @@ const PRODUCTS = [
     name: "Strawberry Mousse Cake",
     category: "Dessert",
     price: 200,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Strawberry mousse cake.",
   },
   {
@@ -816,7 +816,7 @@ const PRODUCTS = [
     name: "Chocolate Truffle Mousse Cake",
     category: "Dessert",
     price: 200,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Chocolate truffle mousse cake.",
   },
   {
@@ -824,7 +824,7 @@ const PRODUCTS = [
     name: "Double Chocolate Muffin",
     category: "Dessert",
     price: 185,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Double chocolate muffin.",
   },
   {
@@ -832,7 +832,7 @@ const PRODUCTS = [
     name: "Choco Fudge Brownie",
     category: "Dessert",
     price: 100,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Chocolate fudge brownie.",
   },
   {
@@ -840,7 +840,7 @@ const PRODUCTS = [
     name: "Choco Chunk Cookie",
     category: "Dessert",
     price: 125,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Chocolate chunk cookie.",
   },
   {
@@ -848,7 +848,7 @@ const PRODUCTS = [
     name: "Gulab Jamun (2 pieces)",
     category: "Dessert",
     price: 65,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Choco_Walnut_Brownie_414x.png?v=1764762258",
+    image: "",
     description: "Two pieces of gulab jamun.",
   },
   {
@@ -856,7 +856,7 @@ const PRODUCTS = [
     name: "Ice Cream — Small (Price Tier 1)",
     category: "Ice Cream",
     price: 72,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Small ice cream serving, 118 ml. Flavour depends on availability.",
   },
   {
@@ -864,7 +864,7 @@ const PRODUCTS = [
     name: "Ice Cream — Small (Price Tier 2)",
     category: "Ice Cream",
     price: 89,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Small ice cream serving, 118 ml. Flavour depends on availability.",
   },
   {
@@ -872,7 +872,7 @@ const PRODUCTS = [
     name: "Ice Cream — Small (Price Tier 3)",
     category: "Ice Cream",
     price: 109,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Small ice cream serving, 118 ml. Flavour depends on availability.",
   },
   {
@@ -880,7 +880,7 @@ const PRODUCTS = [
     name: "Ice Cream — Regular (Price Tier 1)",
     category: "Ice Cream",
     price: 109,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Regular ice cream serving, 180 ml. Flavour depends on availability.",
   },
   {
@@ -888,7 +888,7 @@ const PRODUCTS = [
     name: "Ice Cream — Regular (Price Tier 2)",
     category: "Ice Cream",
     price: 129,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Regular ice cream serving, 180 ml. Flavour depends on availability.",
   },
   {
@@ -896,7 +896,7 @@ const PRODUCTS = [
     name: "Ice Cream — Regular (Price Tier 3)",
     category: "Ice Cream",
     price: 155,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Regular ice cream serving, 180 ml. Flavour depends on availability.",
   },
   {
@@ -904,7 +904,7 @@ const PRODUCTS = [
     name: "Ice Cream — Family Pack (Price Tier 1)",
     category: "Ice Cream",
     price: 295,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Family pack, 500 ml; serves 4–5. Flavour depends on availability.",
   },
   {
@@ -912,7 +912,7 @@ const PRODUCTS = [
     name: "Ice Cream — Family Pack (Price Tier 2)",
     category: "Ice Cream",
     price: 355,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Family pack, 500 ml; serves 4–5. Flavour depends on availability.",
   },
   {
@@ -920,7 +920,7 @@ const PRODUCTS = [
     name: "Ice Cream — Family Pack (Price Tier 3)",
     category: "Ice Cream",
     price: 410,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Family pack, 500 ml; serves 4–5. Flavour depends on availability.",
   },
   {
@@ -928,7 +928,7 @@ const PRODUCTS = [
     name: "Ice Cream — Value Pack (Price Tier 1)",
     category: "Ice Cream",
     price: 390,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Value pack, 700 ml; serves 7–8. Flavour depends on availability.",
   },
   {
@@ -936,7 +936,7 @@ const PRODUCTS = [
     name: "Ice Cream — Value Pack (Price Tier 2)",
     category: "Ice Cream",
     price: 450,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Value pack, 700 ml; serves 7–8. Flavour depends on availability.",
   },
   {
@@ -944,7 +944,7 @@ const PRODUCTS = [
     name: "Ice Cream — Value Pack (Price Tier 3)",
     category: "Ice Cream",
     price: 550,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Website-BlackCurrant_414x.png?v=1722322356",
+    image: "",
     description: "Value pack, 700 ml; serves 7–8. Flavour depends on availability.",
   },
   {
@@ -952,7 +952,7 @@ const PRODUCTS = [
     name: "Italian Gelato — Small (118 ml)",
     category: "Gelato",
     price: 119,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Saffron_Gelato_414x.png?v=1764762258",
+    image: "",
     description: "Small Italian gelato serving, 118 ml.",
   },
   {
@@ -960,7 +960,7 @@ const PRODUCTS = [
     name: "Italian Gelato — Regular (180 ml)",
     category: "Gelato",
     price: 170,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Saffron_Gelato_414x.png?v=1764762258",
+    image: "",
     description: "Regular Italian gelato serving, 180 ml.",
   },
   {
@@ -968,7 +968,7 @@ const PRODUCTS = [
     name: "Italian Gelato — Family Pack (500 ml)",
     category: "Gelato",
     price: 455,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Saffron_Gelato_414x.png?v=1764762258",
+    image: "",
     description: "Italian gelato family pack, 500 ml.",
   },
   {
@@ -976,7 +976,7 @@ const PRODUCTS = [
     name: "Italian Gelato — Value Pack (700 ml)",
     category: "Gelato",
     price: 615,
-    image: "https://baskinrobbinsindia.com/cdn/shop/files/Saffron_Gelato_414x.png?v=1764762258",
+    image: "",
     description: "Italian gelato value pack, 700 ml.",
   }
 ];
@@ -1446,12 +1446,14 @@ function App() {
               </p>
             </div>
 
-            <div className="menu-showcase relative mx-auto max-w-5xl overflow-hidden rounded-[2rem] border bg-white shadow-2xl">
-              <div className="relative aspect-[4/3] bg-gray-50">
+            <div className="menu-showcase relative mx-auto w-full max-w-6xl overflow-hidden rounded-2xl border border-pink-100 bg-white shadow-xl sm:rounded-[2rem]">
+              <div className="relative flex min-h-[420px] items-center justify-center bg-gradient-to-b from-[#fff8fc] to-white px-2 py-4 sm:min-h-[560px] sm:px-6 sm:py-6 lg:min-h-[680px]">
                 <img
+                  key={MENU_IMAGES[menuIndex].image}
                   src={MENU_IMAGES[menuIndex].image}
                   alt={MENU_IMAGES[menuIndex].title}
-                  className="menu-image h-full w-full object-contain"
+                  className="menu-image block max-h-[68vh] w-full object-contain sm:max-h-[78vh]"
+                  loading="lazy"
                 />
 
                 <button
@@ -1462,7 +1464,7 @@ function App() {
                     )
                   }
                   aria-label="Previous menu"
-                  className="absolute left-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-2xl font-bold shadow-xl transition hover:scale-110 hover:text-[#FF007F]"
+                  className="absolute left-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-xl font-bold shadow-lg transition hover:scale-110 hover:text-[#FF007F] sm:left-4 sm:h-12 sm:w-12 sm:text-2xl"
                 >
                   ‹
                 </button>
@@ -1475,13 +1477,13 @@ function App() {
                     )
                   }
                   aria-label="Next menu"
-                  className="absolute right-4 top-1/2 flex h-12 w-12 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-2xl font-bold shadow-xl transition hover:scale-110 hover:text-[#FF007F]"
+                  className="absolute right-2 top-1/2 flex h-9 w-9 -translate-y-1/2 items-center justify-center rounded-full bg-white/95 text-xl font-bold shadow-lg transition hover:scale-110 hover:text-[#FF007F] sm:right-4 sm:h-12 sm:w-12 sm:text-2xl"
                 >
                   ›
                 </button>
               </div>
 
-              <div className="flex flex-col items-center justify-between gap-4 px-6 py-5 sm:flex-row">
+              <div className="flex flex-col items-center justify-between gap-4 px-4 py-4 sm:flex-row sm:px-6 sm:py-5">
                 <div>
                   <h3 className="text-xl font-extrabold">
                     {MENU_IMAGES[menuIndex].title}
@@ -1491,7 +1493,7 @@ function App() {
                   </p>
                 </div>
 
-                <div className="flex gap-2">
+                <div className="flex flex-wrap justify-center gap-2">
                   {MENU_IMAGES.map((menu, index) => (
                     <button
                       type="button"
@@ -1564,14 +1566,32 @@ function App() {
                   >
                     <div className="pointer-events-none absolute -right-10 -top-10 z-10 h-28 w-28 rounded-full border-2 border-[#FF007F]/10" />
 
-                    <div className="relative h-64 overflow-hidden bg-pink-50">
-                      <img
-                        src={product.image}
-                        alt={product.name}
-                        className="h-full w-full object-cover transition duration-700 group-hover:scale-105"
-                        loading="lazy"
-                        referrerPolicy="no-referrer"
-                      />
+                    <div className="relative flex h-56 items-center justify-center overflow-hidden bg-gradient-to-br from-[#fff0f7] via-white to-[#f8eee8] sm:h-64">
+                      {product.image ? (
+                        <img
+                          src={product.image}
+                          alt={product.name}
+                          className="h-full w-full object-contain p-3 transition duration-700 group-hover:scale-[1.03]"
+                          loading="lazy"
+                          referrerPolicy="no-referrer"
+                          onError={(event) => {
+                            event.currentTarget.style.display = "none";
+                          }}
+                        />
+                      ) : (
+                        <div className="flex h-full w-full flex-col items-center justify-center px-6 text-center">
+                          <div className="mb-4 flex h-16 w-16 items-center justify-center rounded-full border border-pink-200 bg-white/90 shadow-sm">
+                            <svg viewBox="0 0 24 24" width="30" height="30" fill="none" stroke="#FF007F" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+                              <path d="M7 4h10l-1 4a4 4 0 0 1-8 0L7 4Z" />
+                              <path d="M8 12v6a2 2 0 0 0 2 2h4a2 2 0 0 0 2-2v-6" />
+                              <path d="M10 16h4" />
+                            </svg>
+                          </div>
+                          <p className="text-xs font-bold uppercase tracking-[0.18em] text-[#FF007F]">Baskin Robbins</p>
+                          <p className="mt-1 max-w-xs text-sm font-semibold text-[#5D4037]">{product.name}</p>
+                          <p className="mt-2 text-xs text-gray-500">Matching product photo coming soon</p>
+                        </div>
+                      )}
                       <div className="absolute left-4 top-4 rounded-full bg-white/95 px-3 py-1.5 text-xs font-bold text-[#FF007F] shadow-lg">
                         {product.category}
                       </div>
@@ -3031,8 +3051,7 @@ function App() {
         }
 
         .menu-showcase:hover .menu-image {
-          transform: scale(1.025);
-          filter: saturate(1.06) contrast(1.02);
+          filter: saturate(1.04) contrast(1.01);
         }
 
         .offer-card {
