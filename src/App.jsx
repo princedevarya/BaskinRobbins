@@ -1197,7 +1197,7 @@ function App() {
             <div className="flex w-full gap-5 overflow-x-auto pb-4 snap-x snap-mandatory [scrollbar-width:thin]">
               {[
                 {
-                  src: "https://lh3.googleusercontent.com/gps-cs-s/ANWiy9Re_xvvVBtFtTuJD8mVLBy6qdpJQNYIanFb0xp20igd021HD830Du6H1KAS0_fQ987C-fxCmUiQPufbB4TUTbVyZAqdG1aHJnRAcmlITs4T8gvTmnIRrVBn3Srpm-6zXaDwwDhhTq7vRZz1=w114-h86-k-no",
+                  src: "https://www.google.com/maps/place/Baskin+Robbins/@23.0180229,76.6679405,3a,75y,90t/data=!3m8!1e2!3m6!1sCIABIhCystBHsnPZ2Ys02pToN6_y!2e10!3e12!6shttps:%2F%2Flh3.googleusercontent.com%2Fgps-cs-s%2FANWiy9SzHstroc6-CkgTbWEkgbRq-BZMhKossJuemV5pMq2UR1HtPTDL-sCc3ClTCm8E-OLXCwuQHQkenKPGOuaYM4hymONbZkc3AlPK0D8u1W3InvsRRahywM-h14EETSqOVlp_IJWY8k92Jts%3Dw203-h152-k-no!7i1600!8i1200!4m7!3m6!1s0x397cc5878ea28929:0xc41dbe47c46d9e7c!8m2!3d23.0180063!4d76.667942!10e5!16s%2Fg%2F11njv949_q?entry=ttu&g_ep=EgoyMDI2MTAwNy4wIKXMDSoASAFQAw%3D%3D",
                   alt: "Baskin Robbins store photo 1",
                 },
                 {
