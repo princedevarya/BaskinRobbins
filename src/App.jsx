@@ -255,6 +255,7 @@ function App() {
   const [cart, setCart] = useState([]);
   const [showCheckout, setShowCheckout] = useState(false);
   const [orderStatus, setOrderStatus] = useState("");
+  const [orderConfirmation, setOrderConfirmation] = useState(null);
   const [customer, setCustomer] = useState({
     name: "",
     phone: "",
@@ -395,9 +396,11 @@ function App() {
         throw new Error(result.message || "Order could not be sent.");
       }
 
-      setOrderStatus(
-        "Order received successfully! We will contact you shortly."
-      );
+      setOrderConfirmation({
+        itemCount: cart.length,
+        total: cartTotal,
+      });
+      setOrderStatus("");
       setCart([]);
       setShowCheckout(false);
       setCustomer({
@@ -869,6 +872,9 @@ function App() {
                   </div>
 
                   <div className="mt-8 border-t pt-6">
+                    <p className="mb-3 text-sm font-medium text-gray-500">
+                      Delivery charges will be further charged.
+                    </p>
                     <div className="flex items-center justify-between">
                       <span className="text-lg font-bold">Total</span>
                       <span className="text-3xl font-black text-[#FF007F]">
@@ -1001,8 +1007,6 @@ function App() {
                     </span>
                   </div>
                   <p className="mt-2 text-sm text-gray-600">
-                    Your order details will be sent to your configured
-                    Web3Forms inbox.
                   </p>
                 </div>
 
@@ -1013,6 +1017,62 @@ function App() {
                   Confirm & Send Order →
                 </button>
               </form>
+            </div>
+          </div>
+        )}
+
+        {orderConfirmation && (
+          <div
+            className="fixed inset-0 z-[120] flex items-center justify-center bg-black/60 p-4 backdrop-blur-sm"
+            role="dialog"
+            aria-modal="true"
+            aria-labelledby="order-confirmation-title"
+          >
+            <div className="w-full max-w-md rounded-[2rem] bg-white p-7 text-center shadow-2xl sm:p-9">
+              <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full bg-green-50 text-green-600">
+                <svg
+                  width="32"
+                  height="32"
+                  viewBox="0 0 24 24"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="2.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  aria-hidden="true"
+                >
+                  <path d="m5 12 4 4L19 6" />
+                </svg>
+              </div>
+              <p className="mt-5 text-xs font-black uppercase tracking-[0.25em] text-[#FF007F]">
+                Baskin Robbins by Shanzzy
+              </p>
+              <h2 id="order-confirmation-title" className="mt-2 text-3xl font-black text-[#5D4037]">
+                Order has been placed!
+              </h2>
+              <p className="mt-3 leading-6 text-gray-600">
+                Our store will contact you soon to confirm your order.
+              </p>
+              <div className="mt-6 rounded-2xl bg-pink-50 p-5 text-left">
+                <div className="flex items-center justify-between gap-4">
+                  <span className="text-sm font-semibold text-gray-600">Total items</span>
+                  <span className="font-black text-[#5D4037]">{orderConfirmation.itemCount}</span>
+                </div>
+                <div className="mt-4 flex items-center justify-between gap-4 border-t border-pink-100 pt-4">
+                  <span className="text-sm font-semibold text-gray-600">Total amount</span>
+                  <span className="text-2xl font-black text-[#FF007F]">₹{orderConfirmation.total}</span>
+                </div>
+                <p className="mt-3 text-xs leading-5 text-gray-500">
+                  Delivery charges will be further charged.
+                </p>
+              </div>
+              <button
+                type="button"
+                onClick={() => setOrderConfirmation(null)}
+                className="mt-6 w-full rounded-full bg-[#FF007F] py-3.5 font-bold text-white shadow-lg transition hover:bg-[#e60072]"
+              >
+                Continue Browsing
+              </button>
             </div>
           </div>
         )}
