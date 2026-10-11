@@ -1263,9 +1263,6 @@ function App() {
               >
                 View More Photos & Reviews on Google Maps →
               </a>
-              <p className="mt-4 text-xs text-gray-400">
-                Photos are displayed from the Google Maps image URLs you provided.
-              </p>
             </div>
           </div>
         </section>
